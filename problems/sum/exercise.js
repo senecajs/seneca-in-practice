@@ -1,1 +1,3 @@
-console.log('TODO');
+var Exercise = require('workshopper-exercise');
+
+module.exports = new Exercise()
