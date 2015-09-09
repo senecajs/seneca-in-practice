@@ -1,0 +1,11 @@
+*~
+test/db
+*.old
+*.bak
+*.tmp
+*.log
+node_modules
+README.html
+*.off
+*-off
+npm-debug.log
