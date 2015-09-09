@@ -1,8 +1,7 @@
 var pwd = process.cwd();
 
 // Problem def, quick tip use ES6 template strings.
-exports.problem = 'Write a seneca "sum" service. ' +
-  '	[TODO: Add a little explaination from tutorial] ';
+exports.problem = '[TODO]';
 
 // Verifier
 exports.verify = function(args,cb) {
