@@ -1,0 +1,23 @@
+{
+    "name": "seneca-in-practice",
+    "version": "0.0.1",
+    "description": "Seneca.js (http://senecajs.org/) NodeSchool workshop",
+    "main": "runners.js",
+    "dependencies": {
+        "adventure-runner": "^2.0.0"
+    },
+    "bin" : {
+        "seneca-in-practice": "runner.js"
+    },
+    "devDependencies": {},
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+        "seneca.js",
+        "nodeSchool",
+        "nodejs"
+    ],
+    "author": "Marco Piraccini <marco.piraccini@gmail.com>",
+    "license": "MIT"
+}
