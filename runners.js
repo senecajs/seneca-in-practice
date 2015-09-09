@@ -1,14 +1,38 @@
-var runner = require('adventure-runner');
+#!/usr/bin/env node
 
-runner('seneca-in-practice',[ '1.sum',
-                            '2.client',
-                            '3.roles',
-                            '4.extend',
-                            '5.extend-client',
-                            '6.multiple',
-                            '7.override',
-                            '8.transport',
-                            '9.more-transport',
-                            '10.mem-store',
-                            '11.plugin',
-                            ]);
+var workshopper = require('workshopper');
+var path = require('path');
+var menu = require('./problems/menu');
+var credits = require('./credits');
+var  hooray = require('workshopper-hooray');
+var more = require('workshopper-more')
+
+var fpath = function (f) {
+  return path.join(__dirname, f)
+}
+
+workshopper({
+    name     : 'seneca-in-practice',
+    title    : 'SENECA IN PRACTICE!',
+    subtitle : 'TODO',
+    subtitle : 'Learn how to make Microservices with Seneca',
+    exerciseDir : fpath('./problems/'),
+    appDir   : __dirname,
+    menu     : {
+        bg : 'red'
+    },
+    helpFile : path.join(__dirname, 'help.txt'),
+    commands : [
+        {
+            name    : 'credits',
+            handler : credits
+        },
+        {
+            name    : 'more',
+            menu    : false,
+            short   : 'm',
+            handler : more
+          }
+    ],
+    onComplete  : hooray
+});

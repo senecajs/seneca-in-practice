@@ -1,0 +1,6 @@
+
+{yellow}{bold}seneca-in-practice is brought to you by the following dedicated hackers:{/bold}{/yellow}
+
+{bold}Name                GitHub Username{/bold}
+-----------------------------------
+Marco Piraccini            @marcopiraccini

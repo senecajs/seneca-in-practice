@@ -1,23 +1,33 @@
 {
-    "name": "seneca-in-practice",
-    "version": "0.0.1",
-    "description": "Seneca.js (http://senecajs.org/) NodeSchool workshop",
-    "main": "runners.js",
-    "dependencies": {
-        "adventure-runner": "^2.0.0"
-    },
-    "bin" : {
-        "seneca-in-practice": "runner.js"
-    },
-    "devDependencies": {},
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "keywords": [
-        "seneca.js",
-        "nodeSchool",
-        "nodejs"
-    ],
-    "author": "Marco Piraccini <marco.piraccini@gmail.com>",
-    "license": "MIT"
+  "name": "seneca-in-practice",
+  "version": "0.0.1",
+  "description": "Seneca.js (http://senecajs.org/) NodeSchool workshop",
+  "main": "runners.js",
+  "dependencies": {
+    "colors-tmpl": "^1.0.0",
+    "workshopper": "^2.7.0",
+    "workshopper-hooray": "^1.1.0",
+    "workshopper-more": "^1.0.1",
+    "workshopper": "~1.3.0",
+    "workshopper-boilerplate": "~1.0.0",
+    "workshopper-exercise": "~1.0.0"
+  },
+  "bin": {
+    "seneca-in-practice": "runner.js"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "seneca.js",
+    "nodeSchool",
+    "nodejs"
+  ],
+  "repository": {
+      "type": "git",
+      "url": "https://github.com/marcopiraccini/seneca-in-practice.git"
+  },
+  "author": "Marco Piraccini <marco.piraccini@gmail.com>",
+  "license": "MIT"
 }
