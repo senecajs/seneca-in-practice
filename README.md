@@ -1,2 +1,2 @@
 # seneca-in-practice
-Seneca.js (http://senecajs.org/) NodeSchool workshop
+[WIP] Seneca.js (http://senecajs.org/) NodeSchool workshop
