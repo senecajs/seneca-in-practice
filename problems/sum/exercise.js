@@ -17,6 +17,7 @@ exercise = comparestdout(exercise)
  * Uses seneca-executor.js and pass the module to be required as param.
  * The executoor will require the module and then execute it using seneca.
  * (note that this is quite different from the "normal" workshopper-exercise).
+ * The seneca log is set to "quiet" to have a clean comparation of stdouts.
  */
 exercise.addSetup(function (mode, callback) {
 
