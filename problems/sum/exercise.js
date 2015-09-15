@@ -10,22 +10,21 @@ exercise = filecheck(exercise)
 // execute the solution and submission in parallel with spawn()
 exercise = execute(exercise)
 
-console.log("SETUP", exercise._setups );
-
-
 // compare stdout of solution and submission
 exercise = comparestdout(exercise)
 
 /**
- * Uses executor.js and pass the module to be required as pasamr.
+ * Uses seneca-executor.js and pass the module to be required as param.
+ * The executoor will require the module and then execute it using seneca.
+ * (note that this is quite different from the "normal" workshopper-exercise).
  */
 exercise.addSetup(function (mode, callback) {
 
-    this.solutionArgs = this.solution;
-    this.submissionArgs = process.cwd() + "/" + this.submission; // TODO: verify portability
+    this.solutionArgs = [this.solution, '--seneca.log.quiet'];
+    this.submissionArgs = [process.cwd() + "/" + this.submission, '--seneca.log.quiet']; // TODO: verify portability
 
-    this.solution = 'problems/sum/seneca-executor.js';
-    this.submission = 'problems/sum/seneca-executor.js';
+    this.solution = 'problems/sum/seneca-sum-executor.js';
+    this.submission = 'problems/sum/seneca-sum-executor.js';
 
     callback(null)
 });

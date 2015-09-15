@@ -6,6 +6,8 @@
  */
 
  var mod = require(process.argv[2]);
- require( 'seneca' )()
-   .use( mod )
-   .act( 'role:math,cmd:sum,left:1,right:2', console.log )
+
+ var seneca = require('seneca')();
+
+ seneca.use(mod)
+   .act('role:math,cmd:sum,left:1,right:2', console.log );
