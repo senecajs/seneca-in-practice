@@ -6,7 +6,7 @@ and Seneca (with a little configuration help) makes sure that you get any messag
 The patterns are very simple, just a list of key-value pairs that the top level properties of the JSON message document must match.
 
 Let's see as example a simple "hello" service, defined in a "greetings" module.
-"this" will be bound to the seneca instance, for the moment do not care about that,
+"this" will be bound to the seneca instance, for the moment do not care about how to do that,
 just focus on the pattern/function structure.  
 
 ```javascript

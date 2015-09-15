@@ -1,5 +1,6 @@
 [
     "Sum",
+    "Plugin",
     "Client",
     "Roles",
     "Extend",
@@ -8,6 +9,5 @@
     "Override",
     "Transport",
     "More Transport",
-    "Mem Store",
-    "Plugin"
+    "Mem Store"
 ]
