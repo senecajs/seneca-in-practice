@@ -22,7 +22,7 @@ module.exports = function greeting ( options ) {
 ```
 
 The goal of the exercise is to build a simple {italic}sum{/italic} service.
-This service must sum two numbers.
+The service should be an "sum" service, defined in a "math" module, and add two numbers, `left` and `right`.
 For the purpose of this exercise, do not require seneca directly, just create a
 module that export a function the defines the patterns, using `this.add` like in the
 above example.
