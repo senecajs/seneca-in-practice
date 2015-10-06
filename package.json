@@ -13,10 +13,11 @@
     "workshopper-more": "^1.0.1"
   },
   "bin": {
-    "seneca-in-practice": "runner.js"
+    "seneca-in-practice": "runners.js"
   },
   "devDependencies": {},
   "scripts": {
+    "start": "node runners",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
