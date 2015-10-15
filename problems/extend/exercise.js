@@ -1,3 +1,3 @@
-var Exercise = require('workshopper-exercise');
+var Exercise = require('workshopper-exercise')
 
 module.exports = new Exercise()
