@@ -22,7 +22,7 @@
   },
   "scripts": {
     "start": "node runners",
-    "test": "echo \"Error: no test specified\",
+    "test": "echo \"Error: no test specified\"",
     "lint": "eslint *.js"
   },
   "keywords": [
