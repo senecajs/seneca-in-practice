@@ -25,7 +25,7 @@ var seneca = require('seneca')()
 var plugin = function( options ) { ... } // as above
 
 seneca.use( plugin, {} )
-seneca.act( 'role:math,cmd:sum,left:1,right:2', console.log )
+seneca.act( 'role:greetings,cmd:hello,name:michele', console.log )
 
 ```
 
