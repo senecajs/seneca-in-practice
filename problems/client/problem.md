@@ -18,13 +18,13 @@ seneca.act({role: 'greetings', cmd: 'hello', name: 'Marco'}, function (err, resu
 ```
 The goal of the exercise is to build a simple {italic}sum{/italic} service client
 for the plugin defined in the previous exercise. To use it, add `seneca.use` with
-the name of the js defined in the previous exercise.
+the name of the js.
 
 ```
 seneca.use('math')
 ```
-The result must be
-printed to `console.log`.
+The client must add the number passed as parameters (use `process.argv`) and
+print out the result using `console.log`. 
 
 Remember also to require seneca using:
 
@@ -34,3 +34,5 @@ seneca.use('math')
 
 (...)
 ```
+
+Test it using `seneca-in-practice verify mysolution`
