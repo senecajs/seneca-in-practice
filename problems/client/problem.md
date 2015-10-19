@@ -24,7 +24,7 @@ the name of the js.
 seneca.use('math')
 ```
 The client must add the number passed as parameters (use `process.argv`) and
-print out the result using `console.log`. 
+print out the result using `console.log`.
 
 Remember also to require seneca using:
 
@@ -35,4 +35,4 @@ seneca.use('math')
 (...)
 ```
 
-Test it using `seneca-in-practice verify mysolution`
+Verify it using `seneca-in-practice verify mysolution,js`
