@@ -1,9 +1,7 @@
-var exercise      = require('workshopper-exercise')()
-  , filecheck     = require('workshopper-exercise/filecheck')
-  , execute       = require('workshopper-exercise/execute')
-  , comparestdout = require('workshopper-exercise/comparestdout')
-
-
+var exercise = require('workshopper-exercise')()
+var filecheck = require('workshopper-exercise/filecheck')
+var execute = require('workshopper-exercise/execute')
+var comparestdout = require('workshopper-exercise/comparestdout')
 
 // checks that the submission file actually exists
 exercise = filecheck(exercise)
@@ -21,16 +19,12 @@ exercise = comparestdout(exercise)
  * The seneca log is set to "quiet" to have a clean comparation of stdouts.
  */
 exercise.addSetup(function (mode, callback) {
-
-  this.solutionArgs = [this.solution, '--seneca.log.quiet'];
-  this.submissionArgs = [process.cwd() + "/" + this.submission, '--seneca.log.quiet']; // TODO: verify portability
-
-  this.solution = 'problems/plugin/seneca-plugin-executor.js';
-  this.submission = 'problems/plugin/seneca-plugin-executor.js';
-
+  this.solutionArgs = [this.solution, '--seneca.log.quiet']
+  this.submissionArgs = [process.cwd() + '/' + this.submission, '--seneca.log.quiet'] // TODO: verify portability
+  this.solution = 'problems/plugin/seneca-plugin-executor.js'
+  this.submission = 'problems/plugin/seneca-plugin-executor.js'
   callback(null)
-});
-
+})
 
 // cleanup for both run and verify
 exercise.addCleanup(function (mode, passed, callback) {
