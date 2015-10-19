@@ -1,8 +1,7 @@
 var seneca = require('seneca')()
+seneca.use('math')
 
-module.exports = function (left, right) {
-  seneca.act({role: 'math', cmd: 'sum', left: left, right: right}, function (err, result) {
-    if (err) return console.error(err)
-    console.log(result)
-  })
-}
+seneca.act({role: 'math', cmd: 'sum', left: process.argv[2], right: process.argv[3]}, function (err, result) {
+  if (err) return console.error(err)
+  console.log(result)
+})

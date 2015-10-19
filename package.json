@@ -10,7 +10,8 @@
     "workshopper-boilerplate": "~1.0.0",
     "workshopper-exercise": "~1.0.0",
     "workshopper-hooray": "^1.1.0",
-    "workshopper-more": "^1.0.1"
+    "workshopper-more": "^1.0.1",
+    "workshopper-wrappedexec": "^0.1.2"
   },
   "bin": {
     "seneca-in-practice": "runners.js"
@@ -31,8 +32,8 @@
     "nodejs"
   ],
   "repository": {
-      "type": "git",
-      "url": "https://github.com/marcopiraccini/seneca-in-practice.git"
+    "type": "git",
+    "url": "https://github.com/marcopiraccini/seneca-in-practice.git"
   },
   "author": "Marco Piraccini <marco.piraccini@gmail.com>",
   "license": "MIT"
