@@ -35,4 +35,4 @@ seneca.use('math')
 (...)
 ```
 
-Verify it using `seneca-in-practice verify mysolution,js`
+Verify it using `seneca-in-practice verify mysolution.js`

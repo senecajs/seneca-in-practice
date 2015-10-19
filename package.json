@@ -36,5 +36,8 @@
     "url": "https://github.com/marcopiraccini/seneca-in-practice.git"
   },
   "author": "Marco Piraccini <marco.piraccini@gmail.com>",
+  "contributors": [
+    "Michele Capra <michelecapra83@gmail.com>"
+  ],
   "license": "MIT"
 }
