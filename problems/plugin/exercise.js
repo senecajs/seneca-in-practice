@@ -4,6 +4,7 @@ var exercise      = require('workshopper-exercise')()
   , comparestdout = require('workshopper-exercise/comparestdout')
 
 
+
 // checks that the submission file actually exists
 exercise = filecheck(exercise)
 

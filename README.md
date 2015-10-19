@@ -2,6 +2,9 @@
 
 [![Join the chat at https://gitter.im/marcopiraccini/seneca-in-practice](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/marcopiraccini/seneca-in-practice?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
+[![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
+
+[![Build Status](https://travis-ci.org/marcopiraccini/seneca-in-practice.svg?branch=master)](https://travis-ci.org/marcopiraccini/seneca-in-practice)
 
 Seneca.js (http://senecajs.org/) NodeSchool workshop
 

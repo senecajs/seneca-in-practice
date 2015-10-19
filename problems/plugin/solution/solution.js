@@ -4,3 +4,4 @@ module.exports = function math( options ) {
     respond(null, {answer: sum});
   });
 };
+
