@@ -5,8 +5,7 @@ Indeed, a plugin:
 - Provides a functionality to the system
 - This functionality fulfills a role in the system
 
-So it makes sense to use the form role:plugin-name as part of your action pattern. This creates a pattern namespace to avoid clashes with other plugin patterns. The use of the word “role” also indicates that other plugins may override some aspects of this role (that is, aspects of this functionality) by providing extensions to some of the action patterns (we'll see how to
-extend micreoservices in the next exercise).
+So it makes sense to use the form role:plugin-name as part of your action pattern. This creates a pattern namespace to avoid clashes with other plugin patterns. The use of the word “role” also indicates that other plugins may override some aspects of this role (that is, aspects of this functionality) by providing extensions to some of the action patterns (we'll see how to extend microservices in the next exercise).
 
 Another common convention is to use the property “cmd” for the main public commands exposed by the plugin. So, you might have, for example:
 
