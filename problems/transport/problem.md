@@ -1,1 +1,32 @@
-# TODO
+Up to now, we had everything running in the same process. In Seneca we have
+**Transport independence**. That is, you can send messages between services in many ways, all hidden from your business logic. It's possible to change that using the
+`listen`method:
+
+```
+require('seneca')().use('myplugin').listen()
+```
+Running this code starts a microservice process that listens on port 10101
+(the default) for HTTP requests. This is not a web server.
+In this case, HTTP is being used as the transport mechanism for messages.
+
+Note that if no host is specified, the client will try to connect to host at 0.0.0.0,
+which do not work on Windows. To avoid that, just pass options to listen, e.g.:
+
+```
+seneca.listen(8080, '192.168.0.2')
+```
+
+The HTTP transport provides an easy way to integrate with Seneca microservices,
+but it does have all the overhead of HTTP.
+Another transport that you can use is direct TCP connections. Seneca provides both HTTP and TCP options via the built-in transport. Let’s move to TCP:
+
+```
+seneca.listen({type:'tcp'})
+```
+
+The goal of the exercise is to expose the `math` plugin already implemented using
+HTTP Transport on the 5000 port. To solve this exercise you can simply require
+the plugin and expose it.
+
+Also, you can test this microservice using the browser or curl doing a GET at 
+`http://localhost:5000/act?role=math&cmd=sum&left=1&right=2`
