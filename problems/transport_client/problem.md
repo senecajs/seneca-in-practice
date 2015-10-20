@@ -29,4 +29,7 @@ the microservice answer.
 To solve the exercise create the solution which sums the two integers passed
 using the first two arguments (use `process.argv`).
 
+Also, remember to `close` seneca when the clients has received the answer, otherwise
+the process will hangs (and you have to terminate it manually).
+
 If you want to test it you can also change (or make a copy) of the solution of the previous exercise and make it expose the microservice through TCP, launch it with node and launch your solution directly (`node mysolution`)

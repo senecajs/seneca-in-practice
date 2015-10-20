@@ -18,7 +18,7 @@ exercise = comparestdout(exercise)
 exercise.addSetup(function (mode, callback) {
   this.seneca = require('seneca')()
   // Start the Seneca Microservice
-  this.seneca.use('solution/math.js').listen({type: 'tcp'})
+  this.seneca.use('solution/plugin/math.js').listen({type: 'tcp'})
 
   var testArgs = [13, 65] // Test arguments to be summed
   this.solutionArgs = this.solutionArgs.concat(testArgs)
