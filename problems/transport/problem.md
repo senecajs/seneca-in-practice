@@ -25,8 +25,15 @@ seneca.listen({type:'tcp'})
 ```
 
 The goal of the exercise is to expose the `math` plugin already implemented using
-HTTP Transport on the 5000 port. To solve this exercise you can simply require
+HTTP Transport on a port specified as parameter (read using `process.argv`).
+To solve this exercise you can simply require
 the plugin and expose it.
 
-Also, you can test this microservice using the browser or curl doing a GET at 
-`http://localhost:5000/act?role=math&cmd=sum&left=1&right=2`
+Also, you can test this microservice using the browser or curl doing a GET, for instance
+you can run directly the solution using:`node solution 6666` (note that if you
+use `seneca-in-practice run mysolution.js`, it uses a random port, invokes the
+microservice automatically and then ends, so you cannot test it directly).
+
+Following this example you can use the URL directly in your browser:
+
+`http://localhost:6666/act?role=math&cmd=sum&left=1&right=2`
