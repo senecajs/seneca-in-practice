@@ -4,3 +4,4 @@
 {bold}Name                GitHub Username{/bold}
 -----------------------------------
 Marco Piraccini            @marcopiraccini
+Michele Capra              @piccoloaiutante
