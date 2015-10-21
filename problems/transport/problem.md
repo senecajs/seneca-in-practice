@@ -1,6 +1,6 @@
 Up to now, we had everything running in the same process. In Seneca we have
 **Transport independence**. That is, you can send messages between services in many ways, all hidden from your business logic. It's possible to change that using the
-`listen`method:
+`listen` method:
 
 ```
 require('seneca')().use('myplugin').listen()
