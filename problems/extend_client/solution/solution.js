@@ -1,11 +1,12 @@
-var seneca = require('seneca')()
-seneca.use('math')
+module.exports = function math (options) {
+  this.add('role:math, cmd:sum', function (msg, respond) {
+    var sum = msg.left + msg.right
+    respond(null, {answer: sum})
+  })
 
-seneca.act({role: 'math', cmd: 'sum', left: parseFloat(process.argv[2]), right: parseFloat(process.argv[3])}, function (err, result) {
-  if (err) return console.error(err)
-  console.log(result)
-})
-seneca.act({role: 'math', cmd: 'sum', integer: true, left: parseFloat(process.argv[2]), right: parseFloat(process.argv[3])}, function (err, result) {
-  if (err) return console.error(err)
-  console.log(result)
-})
+  this.add('role:math, cmd:sum, integer: true', function (msg, respond) {
+    var sum = Math.floor(msg.left) + Math.floor(msg.right)
+    respond(null, {answer: sum})
+  })
+}
+
