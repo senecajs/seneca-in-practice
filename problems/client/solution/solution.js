@@ -1,7 +1,7 @@
-var seneca = require('seneca')()
-seneca.use('math')
+'use strict'
 
-seneca.act({role: 'math', cmd: 'sum', left: process.argv[2], right: process.argv[3]}, function (err, result) {
-  if (err) return console.error(err)
-  console.log(result)
-})
+module.exports = function api (options) {
+  this.add('role:math,cmd:sum', function sum (msg, respond) {
+    respond(null, {answer: Number(msg.left) + Number(msg.right)})
+  })
+}

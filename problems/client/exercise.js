@@ -16,11 +16,11 @@ exercise = comparestdout(exercise)
  * The seneca log is set to "quiet" to have a clean comparation of stdouts.
  */
 exercise.addSetup(function (mode, callback) {
-  var testArgs = [13, 65] // Test arguments to be summed
-  this.solutionArgs = this.solutionArgs.concat(testArgs)
-  this.submissionArgs = this.submissionArgs.concat(testArgs)
-  this.solutionArgs.push('--seneca.log.quiet')
-  this.submissionArgs.push('--seneca.log.quiet')
+   // Test arguments to be summed
+  this.solutionArgs = [this.solution, '--seneca.log.quiet']
+  this.submissionArgs = [process.cwd() + '/' + this.submission, '--seneca.log.quiet'] // TODO: verify portability
+  this.solution = 'problems/client/seneca-client-executor.js'
+  this.submission = 'problems/client/seneca-client-executor.js'
   callback()
 })
 
