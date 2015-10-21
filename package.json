@@ -4,6 +4,7 @@
   "description": "Seneca.js (http://senecajs.org/) NodeSchool workshop",
   "main": "runners.js",
   "dependencies": {
+    "async": "^1.4.2",
     "colors-tmpl": "^1.0.0",
     "hyperquest": "^1.2.0",
     "seneca": "^0.6.5",
