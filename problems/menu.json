@@ -6,8 +6,8 @@
     "Extend",
     "Extend Client",
     "Override",
+    "Pin",
     "Transport",
     "Transport Client",
-    "Pin",
     "Mem Store"
 ]
