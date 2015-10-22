@@ -27,7 +27,7 @@
   "scripts": {
     "start": "node runners",
     "test": "echo \"No test specified\"",
-    "lint": "eslint *.js"
+    "lint": "eslint **/*.js"
   },
   "keywords": [
     "seneca.js",
