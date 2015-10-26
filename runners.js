@@ -23,8 +23,7 @@ workshopper({
   commands: [{
     name: 'credits',
     handler: credits
-  },
-  {
+  }, {
     name: 'more',
     menu: false,
     short: 'm',
