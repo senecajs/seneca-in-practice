@@ -30,8 +30,13 @@ the microservice answer.
 To solve the exercise create the solution which call the sum service using the first
 two arguments (use `process.argv`).
 
+Note that, since we have to require seneca, the seneca module must be available.
+For that, just install it in the local folder using `npm i seneca`. That will
+create a `node_module` folder with seneca and all his dependencies.  
+
 Also, remember to `close` seneca when the clients has received the answer, otherwise
 the process will hangs (and you have to terminate it manually).
 
 If you want to test it manually, you can also change (or make a copy) of the solution
-of the previous exercise and make it expose the microservice through TCP, launch it with node and launch your solution directly (`node mysolution`)
+of the previous exercise and make it expose the microservice through TCP, launch it with node and
+then launch your solution directly (`node mysolution`).
