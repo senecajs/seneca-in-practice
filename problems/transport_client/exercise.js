@@ -25,7 +25,10 @@ exercise.addSetup(function (mode, callback) {
   this.submissionArgs = this.submissionArgs.concat(testArgs)
   this.solutionArgs.push('--seneca.log.quiet')
   this.submissionArgs.push('--seneca.log.quiet')
-  callback()
+
+  setTimeout(function () {
+    callback()
+  }, 2000)
 })
 
 // cleanup for both run and verify
