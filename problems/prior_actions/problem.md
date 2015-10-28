@@ -6,6 +6,7 @@ You need to write a program, that will override, detect if the inputs are intege
 if it is not an integer, it will make make the inputs integers [Math.floor()]
 ++++++++++++++++++++++++++
 
+The goal of this exercise is to override the sum plugin, with the addition checking if the numbers are integers, if they are not the override should convert them to integers before adding them. If the numbers checked were not integers, the function should reference the overridden function using the *this.prior* function.
 
 When you have completed your program, you can run it in the test environment with:
 
