@@ -3,7 +3,7 @@ TO DO
 
 [text definitely not final]
 You need to write a program, that will override, detect if the inputs are integers.
-if it is not an integer, it will make make the inputs integers [(]Math.floor()]
+if it is not an integer, it will make make the inputs integers [Math.floor()]
 ++++++++++++++++++++++++++
 
 
