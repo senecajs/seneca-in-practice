@@ -1,4 +1,4 @@
-'use strict'
+
 
 var seneca = require('seneca')()
 seneca.use(process.argv[2])
