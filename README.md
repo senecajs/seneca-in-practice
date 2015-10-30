@@ -5,11 +5,11 @@
 [![npm][npm-badge]][npm-url]
 [![standard][standard-badge]][standard-url]
 [![nearform][nearform-badge]][nearform-url]
-[![Join the chat at https://gitter.im/marcopiraccini/seneca-in-practice](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/marcopiraccini/seneca-in-practice?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Join the chat at https://gitter.im/senecajs/seneca](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/senecajs/seneca?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 <i>In [stoic philosophy](https://en.wikipedia.org/wiki/Stoicism), study and learning are important.</i>
 
-![Enjoy seneca.js framework!](https://raw.githubusercontent.com/marcopiraccini/seneca-in-practice/master/start.png)
+![Enjoy seneca.js framework!](https://raw.githubusercontent.com/senecajs/seneca-in-practice/master/start.png)
 
 ### How to run it
 
@@ -33,8 +33,8 @@
 **seneca-in-practice** is Copyright (c) 2013-2015 seneca-in-practice contributors (listed above) and licenced under the MIT licence. All rights not explicitly granted in the MIT license are reserved. See the included LICENSE.md file for more details.
 
 
-[travis-badge]: https://travis-ci.org/marcopiraccini/seneca-in-practice.svg?branch=master
-[travis-url]: https://travis-ci.org/marcopiraccini/seneca-in-practice
+[travis-badge]: https://travis-ci.org/senecajs/seneca-in-practice.svg?branch=master
+[travis-url]: https://travis-ci.org/senecajs/seneca-in-practice
 [npm-badge]: https://img.shields.io/npm/v/seneca-in-practice.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/seneca-in-practice
 [standard-badge]: https://img.shields.io/badge/code%20style-standard-blue.svg?style=flat-square
