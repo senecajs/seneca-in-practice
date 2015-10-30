@@ -36,7 +36,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/marcopiraccini/seneca-in-practice.git"
+    "url": "https://github.com/senecajs/seneca-in-practice.git"
   },
   "author": "Marco Piraccini <marco.piraccini@gmail.com>",
   "contributors": [
