@@ -13,15 +13,17 @@ exercise = execute(exercise)
 exercise = comparestdout(exercise)
 
 /**
+ * Uses seneca-executor.js and pass the module to be required as param.
+ * The executoor will require the module and then execute it using seneca.
+ * (note that this is quite different from the "normal" workshopper-exercise).
  * The seneca log is set to "quiet" to have a clean comparation of stdouts.
  */
 exercise.addSetup(function (mode, callback) {
-   // Test arguments to be summed
   this.solutionArgs = [this.solution, '--seneca.log.quiet']
   this.submissionArgs = [process.cwd() + '/' + this.submission, '--seneca.log.quiet'] // TODO: verify portability
-  this.solution = 'problems/client/seneca-client-executor.js'
-  this.submission = 'problems/client/seneca-client-executor.js'
-  callback()
+  this.solution = 'exercises/extend/seneca-extend-executor.js'
+  this.submission = 'exercises/extend/seneca-extend-executor.js'
+  callback(null)
 })
 
 // cleanup for both run and verify
