@@ -10,17 +10,17 @@ var senecaInPractice = require('workshopper-adventure')({
 })
 senecaInPractice.onComplete = require('workshopper-hooray')
 senecaInPractice.addAll([
-  "Sum",
-  "Client",
-  "Plugin",
-  "Roles",
-  "Extend",
-  "Extend Client",
-  "Override",
-  "Pin",
-  "Transport",
-  "Transport Client",
-  "Mem Store"
+  'Sum',
+  'Client',
+  'Plugin',
+  'Roles',
+  'Extend',
+  'Extend Client',
+  'Override',
+  'Pin',
+  'Transport',
+  'Transport Client',
+  'Mem Store'
 ])
 
 module.exports = senecaInPractice
