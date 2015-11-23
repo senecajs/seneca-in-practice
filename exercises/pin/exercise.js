@@ -21,8 +21,9 @@ exercise = comparestdout(exercise)
 exercise.addSetup(function (mode, callback) {
   this.solutionArgs = [this.solution, '--seneca.log.quiet']
   this.submissionArgs = [process.cwd() + '/' + this.submission, '--seneca.log.quiet'] // TODO: verify portability
-  this.solution = 'problems/plugin/seneca-plugin-executor.js'
-  this.submission = 'problems/plugin/seneca-plugin-executor.js'
+
+  this.solution = 'exercises/pin/seneca-pin-executor.js'
+  this.submission = 'exercises/pin/seneca-pin-executor.js'
   callback(null)
 })
 

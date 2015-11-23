@@ -21,15 +21,12 @@ exercise = comparestdout(exercise)
 exercise.addSetup(function (mode, callback) {
   this.solutionArgs = [this.solution, '--seneca.log.quiet']
   this.submissionArgs = [process.cwd() + '/' + this.submission, '--seneca.log.quiet'] // TODO: verify portability
-
-  this.solution = 'problems/roles/seneca-roles-executor.js'
-  this.submission = 'problems/roles/seneca-roles-executor.js'
+  this.solution = 'exercises/extend_client/seneca-extend-client-executor.js'
+  this.submission = 'exercises/extend_client/seneca-extend-client-executor.js'
   callback(null)
 })
 
 // cleanup for both run and verify
-exercise.addCleanup(function (mode, passed, callback) {
-  // Do nothing
-})
+exercise.addCleanup(function (mode, passed, callback) {/* Do nothing */})
 
 module.exports = exercise
