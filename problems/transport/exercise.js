@@ -53,7 +53,7 @@ exercise.addProcessor(function (mode, callback) {
 exercise = comparestdout(exercise)
 
 // cleanup for both run and verify
-exercise.addCleanup(function (mode, passed, callback) {/* Do nothing */})
+exercise.addCleanup(function (mode, passed, callback) { /* Do nothing */ })
 
 // delayed for 500ms to wait for servers to start so we can start
 // playing with them
