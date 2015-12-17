@@ -27,6 +27,6 @@ exercise.addSetup(function (mode, callback) {
 })
 
 // cleanup for both run and verify
-exercise.addCleanup(function (mode, passed, callback) {/* Do nothing */})
+exercise.addCleanup(function (mode, passed, callback) { /* Do nothing */ })
 
 module.exports = exercise
