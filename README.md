@@ -32,7 +32,7 @@ __`seneca-in-practice`__ has been created by:
 
 ## License
 
-**seneca-in-practice** is Copyright (c) 2013-2015
+**seneca-in-practice** is Copyright (c) 2013-2016
 seneca-in-practice contributors (listed above) and licenced under the MIT licence. All rights not explicitly granted in the MIT license are reserved. See the included [LICENSE.md](./LICENSE.md) file for more details.
 
 

@@ -7,7 +7,7 @@
     "async": "^1.4.2",
     "colors-tmpl": "^1.0.0",
     "hyperquest": "^1.2.0",
-    "seneca": "^0.7.1",
+    "seneca": "^1.0.0",
     "through2": "^2.0.0",
     "workshopper": "~1.3.0",
     "workshopper-boilerplate": "~1.0.0",
