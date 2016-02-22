@@ -21,8 +21,8 @@ exercise = comparestdout(exercise)
 exercise.addSetup(function (mode, callback) {
   this.solutionArgs = [this.solution, '--seneca.log.quiet']
   this.submissionArgs = [process.cwd() + '/' + this.submission, '--seneca.log.quiet'] // TODO: verify portability
-  this.solution = 'problems/prior_actions/seneca-prior-actions-executor.js'
-  this.submission = 'problems/prior_actions/seneca-prior-actions-executor.js'
+  this.solution = __dirname +  '/seneca-prior-actions-executor.js'
+  this.submission = __dirname +  '/seneca-prior-actions-executor.js'
   callback(null)
 })
 
