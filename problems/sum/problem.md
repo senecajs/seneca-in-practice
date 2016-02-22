@@ -30,6 +30,7 @@ seneca.add({role: 'greetings', cmd: 'hello'}, ...);
 
 For the purpose of this exercise, at the end of the solution you have to export seneca. Note that **this is usually
 not necessary** since we can organize Microservices in plugins (see the next exercise about that).
+Also, to require seneca, it must be installed in the local folder e.g. running `npm i seneca`
 
 ``` javascript
 var seneca = require('seneca')()
