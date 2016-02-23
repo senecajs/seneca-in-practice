@@ -1,6 +1,6 @@
 {
   "name": "seneca-in-practice",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "Seneca.js (http://senecajs.org/) NodeSchool workshop",
   "main": "runners.js",
   "dependencies": {
