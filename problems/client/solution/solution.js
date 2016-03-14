@@ -1,7 +1,10 @@
 'use strict'
 
-module.exports = function api (options) {
-  this.add('role:math,cmd:sum', function sum (msg, respond) {
-    respond(null, {answer: Number(msg.left) + Number(msg.right)})
-  })
-}
+var seneca = require('./math')
+
+seneca.act({role: 'math', cmd: 'sum', left: 15, right: 28}, function (err, result) {
+  if (err) return console.error(err)
+  console.log(result)
+})
+
+module.exports = seneca
