@@ -26,11 +26,10 @@ seneca.use('math')
 The client must add the number passed as parameters (use `process.argv`) and
 print out the result using `console.log`.
 
-Remember also to require seneca using:
+Remember also to require math module using:
 
 ``` javascript
-var seneca = require('seneca')()
-seneca.use('math')
+var seneca = require('./math')
 
 (...)
 ```
