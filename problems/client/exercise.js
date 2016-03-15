@@ -17,8 +17,12 @@ exercise = comparestdout(exercise)
  */
 exercise.addSetup(function (mode, callback) {
    // Test arguments to be summed
-  this.solutionArgs = [this.solution, '--seneca.log.quiet']
-  this.submissionArgs = [process.cwd() + '/' + this.submission, '--seneca.log.quiet'] // TODO: verify portability
+  this.solutionArgs = [this.solution, 2, 7, '--seneca.log.quiet']
+  if (mode === 'run') {
+    this.submissionArgs = [process.cwd() + '/' + this.submission, process.argv[3], process.argv[4], '--seneca.log.quiet'] // TODO: verify portability
+  } else {
+    this.submissionArgs = [process.cwd() + '/' + this.submission, 2, 7, '--seneca.log.quiet'] // TODO: verify portability
+  }
   this.solution = __dirname + '/seneca-client-executor.js'
   this.submission = __dirname + '/seneca-client-executor.js'
   callback()
