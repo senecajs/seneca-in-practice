@@ -24,7 +24,8 @@ the name of the js.
 seneca.use('math')
 ```
 The client must add the number passed as parameters (use `process.argv`) and
-print out the result using `console.log`.
+print out the result using `console.log`. Keep in mind that process.argv are passed as
+string so you might want to transform them into numbers.
 
 Remember also to require math module using:
 
