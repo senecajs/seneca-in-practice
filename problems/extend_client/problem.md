@@ -22,6 +22,7 @@ Ciao Michele
 ```
 
 The goal of the exercise is to extend the client of the sum plugin so that it call the two plugins that we previously developed.
+Keep in mind that numbers will be passed as parameters (use `process.argv`) and that you might want to transform them into float numbers.
 
 When you have completed your program, you can run it in the test environment with:
 

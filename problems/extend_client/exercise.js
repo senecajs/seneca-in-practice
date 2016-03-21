@@ -19,8 +19,12 @@ exercise = comparestdout(exercise)
  * The seneca log is set to "quiet" to have a clean comparation of stdouts.
  */
 exercise.addSetup(function (mode, callback) {
-  this.solutionArgs = [this.solution, '--seneca.log.quiet']
-  this.submissionArgs = [process.cwd() + '/' + this.submission, '--seneca.log.quiet'] // TODO: verify portability
+  this.solutionArgs = [this.solution, 2.5, 7.8, '--seneca.log.quiet']
+  if (mode === 'run') {
+    this.submissionArgs = [process.cwd() + '/' + this.submission, process.argv[3], process.argv[4], '--seneca.log.quiet'] // TODO: verify portability
+  } else {
+    this.submissionArgs = [process.cwd() + '/' + this.submission, 2.5, 7.8, '--seneca.log.quiet'] // TODO: verify portability
+  }
   this.solution = __dirname + '/seneca-extend-client-executor.js'
   this.submission = __dirname + '/seneca-extend-client-executor.js'
   callback(null)
