@@ -1,5 +1,5 @@
 We know how to create a Seneca Microservice and how to organize it in a Seneca
-plugin. The next step is to write code to use this Micorservices as client.
+plugin. The next step is to write code to use this Microrservices as client.
 
 The method to be used for this purpose is `seneca.act`, which is used to submit
 a message to act on. It has two parameters:
