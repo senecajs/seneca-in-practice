@@ -15,7 +15,7 @@ So for instance, thinking about hello example, we could override the service to 
 
 ```javascript
 var seneca = require('seneca')()
-var names=[]
+var names={}
 
 seneca.add( 'role:greetings, cmd:hello', function( msg, respond ) {
     var hello = "Hello " + msg.name;
