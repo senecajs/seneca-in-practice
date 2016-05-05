@@ -59,5 +59,5 @@ And once you are happy that it is correct then run:
 
     {bold}seneca-in-practice verify program.js{/bold}
 
-And your submission will be verified. Once your solution is correct solution, run `{bold}seneca-in-practice{/bold}` again and
-select the next exercise!
+And your submission will be verified. Once your solution is correct solution,
+run `{bold}seneca-in-practice{/bold}` again and select the next exercise!
