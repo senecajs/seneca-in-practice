@@ -53,11 +53,11 @@ module.exports = seneca
 
 When you have completed your program, you can run it in the test environment with:
 
-    {bold}{appname} run program.js{/bold}
+    {bold}seneca-in-practice run program.js{/bold}
 
 And once you are happy that it is correct then run:
 
-    {bold}{appname} verify program.js{/bold}
+    {bold}seneca-in-practice verify program.js{/bold}
 
-And your submission will be verified. Once your solution is correct solution, run `{bold}{appname}{/bold}` again and
+And your submission will be verified. Once your solution is correct solution, run `{bold}seneca-in-practice{/bold}` again and
 select the next exercise!
