@@ -14,7 +14,8 @@ The pattern definition is just a list of key-value pairs that the top level
 properties of the JSON message document must match.
 
 This is an example service for a simple `hello` _command_ (cmd) with the
-_role_ `greetings`:
+_role_ `greetings` (so configuring the microservice to answer to a
+ `role:greetings,cmd:hello` pattern)
 
 ```javascript
 var seneca = require('seneca')()
