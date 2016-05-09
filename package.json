@@ -6,6 +6,7 @@
   "dependencies": {
     "async": "^1.4.2",
     "colors-tmpl": "^1.0.0",
+    "end-of-stream": "^1.1.0",
     "hyperquest": "^1.2.0",
     "seneca": "^2.0.1",
     "through2": "^2.0.0",
