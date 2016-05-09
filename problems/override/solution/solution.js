@@ -8,7 +8,6 @@ module.exports = function math (options) {
   this.add(
     'role:math,cmd:sum',
     function (msg, respond) {
-
       // bail out early if there's a problem
       if (!isFinite(msg.left) || !isFinite(msg.right)) {
         return respond(new Error('Expected left and right to be numbers.'))
