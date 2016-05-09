@@ -7,6 +7,7 @@ var async = require('async')
  */
 var mod = require(process.argv[2])
 var seneca = require('seneca')().use(mod)
+seneca.use('entity')
 
 async.waterfall([
   function (callback) {
