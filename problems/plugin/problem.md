@@ -1,3 +1,5 @@
+---
+
 When you use the Seneca framework. You write plugins all the time. They are an
 easy way to organize your action patterns, like the exercise that you've just
 done.

@@ -21,7 +21,7 @@ exercise = comparestdout(exercise)
 exercise.addSetup(function (mode, callback) {
   this.solutionArgs = [this.solution, 2.5, 7.8, '--seneca.log.quiet']
   if (mode === 'run') {
-    this.submissionArgs = [process.cwd() + '/' + this.submission, process.argv[3], process.argv[4], '--seneca.log.quiet'] // TODO: verify portability
+    this.submissionArgs = [process.cwd() + '/' + this.submission, process.argv[4], process.argv[5], '--seneca.log.quiet'] // TODO: verify portability
   } else {
     this.submissionArgs = [process.cwd() + '/' + this.submission, 2.5, 7.8, '--seneca.log.quiet'] // TODO: verify portability
   }

@@ -1,3 +1,5 @@
+---
+
 The action patterns that we define are unique. They can trigger only one
 function. The patterns resolve using the following rules:
 
@@ -5,9 +7,9 @@ function. The patterns resolve using the following rules:
 * If the patterns have the same number of properties, they are matched
 in alphabetical order.
 * If you declare two times the same pattern, the latest will be the one
-used in a seneca instance, as there can't be two equal patterns in it.
+used in a instance, as there can't be two equal patterns in it.
 
-These rules are designed to be simple so that you can run them in your head. 
+These rules are designed to be simple so that you can run them in your head.
 It’s very easy to understand which pattern will trigger which action function.
 
 It is sometimes useful to have a way of enhancing the behavior of an action
@@ -16,7 +18,7 @@ validation of the message properties, capture message statistics,
 add additional information to action results, or throttle message flow rates.
 
 So for instance, thinking about hello example, we could override the service
- to save statistics about the names.
+to save statistics about the names.
 
 
 ```javascript
@@ -29,10 +31,10 @@ seneca.add( 'role:greetings, cmd:hello', function( msg, respond ) {
 });
 
 seneca.add( 'role:greetings, cmd:hello', function( msg, respond ) {
-   
+
    // saving names statistics in names array
-   names[msg.name]=  names[msg.name]?  names[msg.name]+1:0
-   
+   names[msg.name]=  names[msg.name] ? names[msg.name] + 1 : 1
+
    // call previous action function for role:greetings,cmd:hello
    this.prior({
      role:  'greetings',
@@ -62,7 +64,7 @@ If one of the number is not a finite number the plugin should throw a
 *new Error('Expected left and right to be numbers.')*.
 You could use *Number.isFinite* function to do validate numbers.
 
-When you have completed your program, you can run it in the test environment with:
+When you have completed your program, you can run it with:
 
     {bold}seneca-in-practice run program.js{/bold}
 
@@ -70,5 +72,6 @@ And once you are happy that it is correct then run:
 
     {bold}seneca-in-practice verify program.js{/bold}
 
-And your submission will be verified. Once your solution is correct solution,
-run `{bold}seneca-in-practice{/bold}` again and select the next exercise!
+And your submission will be verified for correctness.
+After you have a correct solution, run `{bold}{appname}{/bold}` again and
+select the next problem!
