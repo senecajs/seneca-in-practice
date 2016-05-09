@@ -23,7 +23,7 @@ to save statistics about the names.
 
 ```javascript
 var seneca = require('seneca')()
-var names={}
+var names = {}
 
 seneca.add( 'role:greetings, cmd:hello', function( msg, respond ) {
     var hello = "Hello " + msg.name;
@@ -62,7 +62,8 @@ The goal of the exercise is to override the sum plugin with the addition action
 expecting the left and right properties to be finite numbers.
 If one of the number is not a finite number the plugin should throw a
 *new Error('Expected left and right to be numbers.')*.
-You could use *Number.isFinite* function to do validate numbers.
+You could use *isFinite* global function to do validate numbers (dont' use  
+*Number.isFinite* since it doesn't do the type conversion needed on args).
 
 When you have completed your program, you can run it with:
 
