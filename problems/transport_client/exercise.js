@@ -21,6 +21,12 @@ exercise.addSetup(function (mode, callback) {
   this.seneca.use('solution/plugin/math.js').listen({type: 'tcp'})
 
   var testArgs = [13, 65] // Test arguments to be summed
+  if (mode === 'run') {
+    this.submissionArgs = this.submissionArgs.concat([process.argv[4], process.argv[5]])
+  } else {
+    this.submissionArgs = this.submissionArgs.concat(testArgs)
+  }
+
   this.solutionArgs = this.solutionArgs.concat(testArgs)
   this.submissionArgs = this.submissionArgs.concat(testArgs)
   this.solutionArgs.push('--seneca.log.quiet')
