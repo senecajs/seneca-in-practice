@@ -1,6 +1,5 @@
 module.exports = function math (options) {
   this.add('role:math,cmd:sum', function (msg, respond) {
-    console.log('infinite')
     var sum = msg.left + msg.right
     respond(null, {answer: sum})
   })
@@ -10,7 +9,7 @@ module.exports = function math (options) {
     'role:math,cmd:sum',
     function (msg, respond) {
       // bail out early if there's a problem
-      if (!Number.isFinite(msg.left) || !Number.isFinite(msg.right)) {
+      if (!isFinite(msg.left) || !isFinite(msg.right)) {
         return respond(new Error('Expected left and right to be numbers.'))
       }
 
@@ -28,9 +27,4 @@ module.exports = function math (options) {
         respond(null, result)
       })
     })
-
-  this.add('role:math,cmd:sum,integer:true', function (msg, respond) {
-    var sum = Math.floor(msg.left) + Math.floor(msg.right)
-    respond(null, {answer: sum})
-  })
 }

@@ -4,6 +4,7 @@ var exercise = require('workshopper-exercise')()
 var filecheck = require('workshopper-exercise/filecheck')
 var execute = require('workshopper-exercise/execute')
 var comparestdout = require('workshopper-exercise/comparestdout')
+var eos = require('end-of-stream')
 
 // checks that the submission file actually exists
 exercise = filecheck(exercise)
@@ -42,7 +43,11 @@ exercise.addProcessor(function (mode, callback) {
   if (mode === 'verify') {
     this.solutionStdout = through2()
   }
-  setTimeout(query.bind(this, mode), 500)
+
+  // Start the solution
+  require(this.solution)
+
+  setTimeout(query.bind(this, mode, callback), 500)
 
   process.nextTick(function () {
     callback(null, true)
@@ -57,22 +62,19 @@ exercise.addCleanup(function (mode, passed, callback) { /* Do nothing */ })
 
 // delayed for 500ms to wait for servers to start so we can start
 // playing with them
-function query (mode) {
-  var exercise = this
-
-  // Should we pass the port?
+function query (mode, callback) {
+    // Should we pass the port?
   function connect (port, stream) {
     var input = through2()
-    var url = 'http://localhost:' + port + '/act?role=math&cmd=sum&left=1&right=2'
-    input.pipe(hyperquest.post(url)
-      .on('error', function (err) {
-        exercise.emit(
-            'fail'
-          , exercise.__('fail.connection', {address: url, message: err.message})
-        )
-      }
-    ))
-    .pipe(stream)
+    var url = 'http://localhost:' + port + '/act?role=math&cmd=sum&left=12&right=2'
+    eos(input, function () {
+      // Sena CTRL-C after 500 millis
+      setTimeout(function () {
+        process.kill(process.pid, 'SIGINT')
+      }, 500)
+    })
+
+    input.pipe(hyperquest.post(url)).pipe(stream)
     input.end()
   }
 

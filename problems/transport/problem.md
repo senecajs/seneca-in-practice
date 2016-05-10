@@ -1,11 +1,12 @@
 Up to now, we had everything running in the same process. In Seneca we have
-**Transport independence**. That is, you can send messages between services in many ways, all hidden from your business logic. It's possible to change that using the
-`listen` method:
+**Transport independence**. That is, you can send messages between services in
+many ways, all hidden from your business logic. It's possible to change that
+using the `listen` method:
 
 ```
 require('seneca')().use('myplugin').listen()
 ```
-Running this code starts a microservice process that listens on port 10101
+Running this code starts a Microservice process that listens on port 10101
 (the default) for HTTP requests. This is not a web server.
 In this case, HTTP is being used as the transport mechanism for messages.
 
@@ -16,9 +17,10 @@ which do not work on Windows. To avoid that, just pass options to listen, e.g.:
 seneca.listen(8080, '192.168.0.2')
 ```
 
-The HTTP transport provides an easy way to integrate with Seneca microservices,
+The HTTP transport provides an easy way to integrate with Seneca Microservices,
 but it does have all the overhead of HTTP.
-Another transport that you can use is direct TCP connections. Seneca provides both HTTP and TCP options via the built-in transport. Let’s move to TCP:
+Another transport that you can use is direct TCP connections. Seneca provides
+both HTTP and TCP options via the built-in transport. Let’s move to TCP:
 
 ```
 seneca.listen({type:'tcp'})
@@ -29,10 +31,10 @@ HTTP Transport on a port specified as parameter (read using `process.argv`).
 To solve this exercise you can simply require
 the plugin and expose it.
 
-Also, you can test this microservice using the browser or curl doing a GET, for instance
-you can run directly the solution using:`node solution 6666` (note that if you
-use `seneca-in-practice run mysolution.js`, it uses a random port, invokes the
-microservice automatically and then ends, so you cannot test it directly).
+Also, you can test this Microservice using the browser or curl doing a GET, for
+instance you can run directly the solution using:`node solution 6666` (note that
+if you use `seneca-in-practice run mysolution.js`, it uses a random port, invokes
+the microservice automatically and then ends, so you cannot test it directly).
 
 Following this example you can use the URL directly in your browser:
 

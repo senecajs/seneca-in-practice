@@ -1,13 +1,14 @@
 Let's consider a situation in which we want to execute a set of operations
 for each invocation. On the Microservice side, this can be done using `wrap`,
 that is a method which  matches a set of patterns and overrides all of them with
-the same action extension function.  This is the same as calling seneca.add manually for each one. It takes the following two parameters:
+the same action extension function.  This is the same as calling seneca.add
+manually for each one. It takes the following two parameters:
 
 * **pin**: a pin is a pattern-matching pattern.
 * action: action extension function.
 
-Here an example of teh "greetings" plugin
-which transform every name passed in uppercase:
+Here an example of the "greetings" plugin which transform every name passed
+in uppercase:
 
 ```
 module.exports = function greetings(options) {
@@ -46,3 +47,17 @@ require('seneca')().use('greetings' ).listen({type:'tcp', pin:'role:greetings'})
 The goal of the exercise is to extend the math plugin using `wrap` with a `pin`
 to convert the passed parameters to Number, so that the plugin works also if
 the numbers to be added / multiplied are strings.
+Use `process.argv` params, so that the first param is `sum` or `product` strings
+and the other two are the numbers on which the operation must be applied.
+
+When you have completed your program, you can run it with:
+
+    {bold}seneca-in-practice run program.js{/bold}
+
+And once you are happy that it is correct then run:
+
+    {bold}seneca-in-practice verify program.js{/bold}
+
+And your submission will be verified for correctness.
+After you have a correct solution, run `{bold}{appname}{/bold}` again and
+select the next problem!
