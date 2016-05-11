@@ -32,10 +32,10 @@ To solve this exercise you can simply require
 the plugin and expose it.
 
 Also, you can test this Microservice using the browser or curl doing a GET, for
-instance you can run directly the solution using:`node solution 6666` (note that
+instance you can run directly the solution using:`node solution 8888` (note that
 if you use `seneca-in-practice run mysolution.js`, it uses a random port, invokes
 the microservice automatically and then ends, so you cannot test it directly).
 
 Following this example you can use the URL directly in your browser:
 
-`http://localhost:6666/act?role=math&cmd=sum&left=1&right=2`
+`http://localhost:8888/act?role=math&cmd=sum&left=1&right=2`
