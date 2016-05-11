@@ -1,5 +1,5 @@
 Up to now, we had everything running in the same process. In Seneca we have
-**Transport independence**. That is, you can send messages between services in
+**Transport independence**. This means that you can send messages between services in
 many ways, all hidden from your business logic. It's possible to change that
 using the `listen` method:
 
@@ -28,8 +28,7 @@ seneca.listen({type:'tcp'})
 
 The goal of the exercise is to expose the `math` plugin already implemented using
 HTTP Transport on a port specified as parameter (read using `process.argv`).
-To solve this exercise you can simply require
-the plugin and expose it.
+To solve this exercise you can simply require the plugin and expose it.
 
 Also, you can test this Microservice using the browser or curl doing a GET, for
 instance you can run directly the solution using:`node solution 8888` (note that
@@ -39,3 +38,11 @@ the microservice automatically and then ends, so you cannot test it directly).
 Following this example you can use the URL directly in your browser:
 
 `http://localhost:8888/act?role=math&cmd=sum&left=1&right=2`
+
+And once you are happy that it is correct then run:
+
+  {bold}{appname} verify program.js{/bold}
+
+And your submission will be verified for correctness.
+After you have a correct solution, run `{bold}{appname}{/bold}` again and
+select the next problem!

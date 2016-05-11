@@ -1,6 +1,6 @@
 ---
 
-When you use the Seneca framework. You write plugins all the time. They are an
+When you use the Seneca framework, you write plugins all the time. They is an
 easy way to organize your action patterns, like the exercise that you've just
 done.
 
@@ -23,7 +23,7 @@ var plugin = function( options ) {
 
 ```
 
-and it could be consumed in this way:
+and it could be loaded in this way:
 
 ```javascript
 var seneca = require('seneca')()
@@ -35,10 +35,10 @@ seneca.act( 'role:greetings,cmd:hello,name:michele', console.log )
 
 ```
 
-The goal of the exercise is to write a plugin that sum of two numbers, as we
+The goal of the exercise is to write a plugin that sums two numbers, as we
 did for the first step. For the purpose of this exercise, do not require seneca
-directly, just create a module that export a function the defines the patterns,
-using `this.add` instead of `seneca.add` like we did in the previous step.
+directly, just create a module that exports a function that defines the patterns,
+using `this.add` instead of `seneca.add` as we did in previous step.
 
 When you have completed your program, you can run it with:
 

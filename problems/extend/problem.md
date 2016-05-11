@@ -4,8 +4,8 @@ Patterns make it easy for you to extend your functionality. Instead of adding if
 statements and complex logic, you simply add more patterns.
 
 So for instance, thinking about hello example, we could extend the service to
-support the italian language. To do this, we can add a new property, lang:it,
-to the message object. Then, we provide a new action for messages that have
+support the italian language. To do this, we can add a new property, `lang:it`,
+to the message object. Then we provide a new action for messages that have
 this property:
 
 ```javascript

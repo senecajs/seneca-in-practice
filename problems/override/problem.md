@@ -4,7 +4,7 @@ The action patterns that we define are unique. They can trigger only one
 function. The patterns resolve using the following rules:
 
 * More properties win.
-* If the patterns have the same number of properties, they are matched
+* If the patterns have the same number of properties, they are matched 
 in alphabetical order.
 * If you declare two times the same pattern, the latest will be the one
 used in a instance, as there can't be two equal patterns in it.
@@ -49,8 +49,8 @@ seneca.add( 'role:greetings, cmd:hello', function( msg, respond ) {
 
 ```
 
-The Seneca instance provided to an action function via the the *this* context
-variable has a special *prior* method that calls the previous action definition
+The Seneca instance provided to an action function via the the `this` context
+variable has a special `prior` method that calls the previous action definition
 for the current action pattern.
 
 The prior function has two parameters:
@@ -58,12 +58,15 @@ The prior function has two parameters:
 * msg: the msg object, which you may have modified.
 * response_callback: a callback function where you can modify the result.
 
-The goal of the exercise is to override the sum plugin with the addition action
+The goal of the exercise is to override the sum plugin with the "addition" action
 expecting the left and right properties to be finite numbers.
 If one of the number is not a finite number the plugin should throw a
-*new Error('Expected left and right to be numbers.')*.
-You could use *isFinite* global function to do validate numbers (dont' use  
-*Number.isFinite* since it doesn't do the type conversion needed on args).
+`new Error('Expected left and right to be numbers.')`.
+You could use `isFinite` global function to do validate numbers (dont' use 
+`Number.isFinite` since it doesn't do the type conversion needed on args).
+In order to verify that the `prior` call has been done, we would like to add
+logging info to the result. So add a `info` property to the result that will
+concat numbers in this way: `msg.left + '+' + msg.right`.
 
 When you have completed your program, you can run it with:
 

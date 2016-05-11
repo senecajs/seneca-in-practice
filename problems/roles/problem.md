@@ -7,7 +7,7 @@ Indeed, a plugin:
 - Provides a functionality to the system
 - This functionality fulfills a role in the system
 
-So it makes sense to use the form role:plugin-name as part of your action pattern.
+So it makes sense to use `role:plugin-name` as part of your action pattern.
 This creates a pattern namespace to avoid clashes with other plugin patterns.
 The use of the word “role” also indicates that other plugins may override some
 aspects of this role (that is, aspects of this functionality) by providing

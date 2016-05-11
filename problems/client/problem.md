@@ -24,7 +24,8 @@ The goal of the exercise is to build a simple {italic}sum{/italic} service
 client for the pattern defined in the previous exercise.
 The client must add the number passed as parameters (use `process.argv`) and
 print out the result using `console.log`. Keep in mind that process.argv are
-passed as string so you might want to transform them into numbers.
+passed as string so you might want to transform them into numbers and that 
+the first parameter will be on position 3 of argv.
 
 Remember also to require math module using:
 
