@@ -1,6 +1,6 @@
 ---
 
-When you use the Seneca framework, you write plugins all the time. They is an
+When you use the Seneca framework, you write plugins all the time. There is an
 easy way to organize your action patterns, like the exercise that you've just
 done.
 
