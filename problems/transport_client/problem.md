@@ -45,4 +45,4 @@ the process will hangs (and you have to terminate it manually).
 
 If you want to test it manually, you can also change (or make a copy) of the solution
 of the previous exercise and make it expose the microservice through TCP, launch
-it with node and then launch your solution directly (`node mysolution`).
+it with node and then launch your solution directly (`node program.js`).
