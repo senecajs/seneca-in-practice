@@ -34,15 +34,15 @@ Some Notes:
 
 Since we have to require seneca, the seneca module must be available.
 For that, just install it in the local folder using `npm i seneca`. That will
-create a `node_module` folder with seneca and all his dependencies.
+create a `node_modules` folder with seneca and all its dependencies.
 
 If no `host` is specified, the client uses `0.0.0.0`. This will not work on
 some versions of Windows. To fix that, simply specify `host: '127.0.0.1'` on
 client connection.
 
-Remember to `close` seneca when the clients has received the answer, otherwise
-the process will hangs (and you have to terminate it manually).
+Remember to `close` seneca when the client has received the answer, otherwise
+the process will hang (and you have to terminate it manually).
 
 If you want to test it manually, you can also change (or make a copy) of the solution
 of the previous exercise and make it expose the microservice through TCP, launch
-it with node and then launch your solution directly (`node mysolution`).
+it with node and then launch your solution directly (`node program.js`).
