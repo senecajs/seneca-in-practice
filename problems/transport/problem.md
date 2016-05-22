@@ -35,9 +35,9 @@ instance you can run directly the solution using:`node program.js 8888` (note th
 if you use `seneca-in-practice run program.js`, it uses a random port, invokes
 the microservice automatically and then ends, so you cannot test it directly).
 
-Following this example you can use the URL directly in your browser:
+Following this example you can use the URL directly with cURL:
 
-`http://localhost:8888/act?role=math&cmd=sum&left=1&right=2`
+`curl -d '{"cmd":"sum","left":1,"right":2}' http://localhost:8888/act?role=math`
 
 And once you are happy that it is correct then run:
 
