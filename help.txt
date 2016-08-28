@@ -13,12 +13,12 @@
   packages used in {appname}, you could consider one of the following
   support channels instead:
 
-    - [TODO]
-    - [TODO]
-    - Open a new issue [TODO]
+    - Gitter: https://gitter.im/senecajs/seneca
+    - Seneca Github: https://github.com/senecajs/seneca/issues/new
+    - Workshopper Github: https://github.com/senecajs/seneca-in-practice/issues/new
 
 {yellow}{bold}Found a bug with {appname} or just want to contribute?{/bold}{/yellow}
 
   The official repository for {appname} is:
-    https://github.com/rjrodger/seneca
+    https://github.com/senecajs/seneca
   Feel free to file a bug report or (preferably) a pull request.
