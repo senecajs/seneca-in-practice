@@ -37,7 +37,7 @@ The service has to calculate the sum of the `left` and `right` property of
 the message.
 For the purpose of this exercise, at the end of the solution you have to
 export Seneca. Note that **this is usually not necessary** since we can
-organize Microservices in plugins (see the plugin exercise about that).
+organize microservices in plugins (see the plugin exercise about that).
 Also, to require Seneca, it must be installed in the local folder
  e.g. running `npm i seneca`
 
