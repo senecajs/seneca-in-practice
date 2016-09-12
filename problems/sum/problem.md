@@ -1,12 +1,12 @@
 ---
 
 ## Introduction
-Seneca lets you build a microservice system without worrying about how the
+Seneca lets you build a Microservice system without worrying about how the
 parts fit together.
 
-Every microservice in Seneca has to consume JSON messages. Unlike other
+Every Microservice in Seneca has to consume JSON messages. Unlike other
 systems, in Seneca the producer of such a JSON message does not specify
-which service should process the message. In Seneca, each microservice
+which service should process the message. In Seneca, each Microservice
 specifies **patterns** to match messages against and Seneca makes sure
 that each message is processed by the best matching service.
 
@@ -14,7 +14,7 @@ The pattern definition is just a list of key-value pairs that the top level
 properties of the JSON message document must match.
 
 This is an example service for a simple `hello` _command_ (cmd) with the
-_role_ `greetings` (so configuring the microservice to answer to a
+_role_ `greetings` (so configuring the Microservice to answer to a
  `role:greetings,cmd:hello` pattern)
 
 ```javascript
@@ -37,7 +37,7 @@ The service has to calculate the sum of the `left` and `right` property of
 the message.
 For the purpose of this exercise, at the end of the solution you have to
 export Seneca. Note that **this is usually not necessary** since we can
-organize microservices in plugins (see the plugin exercise about that).
+organize Microservices in plugins (see the plugin exercise about that).
 Also, to require Seneca, it must be installed in the local folder
  e.g. running `npm i seneca`
 

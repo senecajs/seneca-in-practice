@@ -15,6 +15,7 @@ exercise = filecheck(exercise)
 
 // Test params
 let a, b
+
 /**
  * If mode === run, get the params from args
  */

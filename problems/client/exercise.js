@@ -1,7 +1,11 @@
-var exercise = require('workshopper-exercise')()
-var filecheck = require('workshopper-exercise/filecheck')
-var execute = require('workshopper-exercise/execute')
-var comparestdout = require('workshopper-exercise/comparestdout')
+let exercise = require('workshopper-exercise')()
+const filecheck = require('workshopper-exercise/filecheck')
+const execute = require('workshopper-exercise/execute')
+const comparestdout = require('workshopper-exercise/comparestdout')
+const path = require('path')
+
+// cleanup for both run and verify
+exercise.addCleanup(function (mode, passed, callback) { /* Do nothing */ })
 
 // checks that the submission file actually exists
 exercise = filecheck(exercise)
@@ -9,27 +13,24 @@ exercise = filecheck(exercise)
 // execute the solution and submission in parallel with spawn()
 exercise = execute(exercise)
 
-// compare stdout of solution and submission
-exercise = comparestdout(exercise)
-/**
- * The seneca log is set to "quiet" to have a clean comparation of stdouts.
- */
 exercise.addSetup(function (mode, callback) {
    // Test arguments to be summed
   if (mode === 'run') {
     // run
+    // TODO: If params are not passed, print a warning and generates them randomly
     this.submissionArgs = [process.cwd() + '/' + this.submission, process.argv[4], process.argv[5]]
   } else {
     // verify
+    // TODO: Generate random params
     this.solutionArgs = [this.solution, 2, 7]
     this.submissionArgs = [process.cwd() + '/' + this.submission, 2, 7]
   }
-  this.solution = __dirname + '/seneca-client-executor.js'
-  this.submission = __dirname + '/seneca-client-executor.js'
+  this.solution = path.join(exercise.dir, '/seneca-client-executor.js')
+  this.submission = path.join(exercise.dir, '/seneca-client-executor.js')
   callback()
 })
 
-// cleanup for both run and verify
-exercise.addCleanup(function (mode, passed, callback) { /* Do nothing */ })
+// compare stdout of solution and submission
+exercise = comparestdout(exercise)
 
 module.exports = exercise

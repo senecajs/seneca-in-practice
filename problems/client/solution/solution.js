@@ -5,5 +5,3 @@ seneca.act({role: 'math', cmd: 'sum', left: process.argv[2], right: process.argv
   if (err) return console.error(err)
   console.log(result)
 })
-
-module.exports = seneca
