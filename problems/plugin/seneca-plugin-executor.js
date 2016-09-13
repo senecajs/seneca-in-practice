@@ -7,7 +7,16 @@
 
 var mod = require(process.argv[2])
 
-var seneca = require('seneca')()
+var seneca = require('seneca')({
+  log: 'silent'
+})
 
-seneca.use(mod)
-  .act('role:math,cmd:sum,left:1,right:2', console.log)
+const left = process.argv[3]
+const right = process.argv[4]
+console.log(left, right)
+seneca.use(mod).act(`role:math, cmd:sum, left: ${left}, right:${right}`, (err, res) => {
+  if (err) {
+    return console.log(err)
+  }
+  console.log(res)
+})

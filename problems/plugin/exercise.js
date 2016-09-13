@@ -1,7 +1,9 @@
-var exercise = require('workshopper-exercise')()
-var filecheck = require('workshopper-exercise/filecheck')
-var execute = require('workshopper-exercise/execute')
-var comparestdout = require('workshopper-exercise/comparestdout')
+let exercise = require('workshopper-exercise')()
+const filecheck = require('workshopper-exercise/filecheck')
+const execute = require('workshopper-exercise/execute')
+const comparestdout = require('workshopper-exercise/comparestdout')
+const path = require('path')
+const {getRandomInt} = require('../utils')
 
 // checks that the submission file actually exists
 exercise = filecheck(exercise)
@@ -19,11 +21,22 @@ exercise = comparestdout(exercise)
  * The seneca log is set to "quiet" to have a clean comparation of stdouts.
  */
 exercise.addSetup(function (mode, callback) {
-  this.solutionArgs = [this.solution, '--seneca.log.quiet']
-  this.submissionArgs = [process.cwd() + '/' + this.submission, '--seneca.log.quiet']
-  this.solution = __dirname + '/seneca-plugin-executor.js'
-  this.submission = __dirname + '/seneca-plugin-executor.js'
-  callback(null)
+  const left = getRandomInt(0, 100)
+  const right = getRandomInt(0, 100)
+  const submissionFilePath = path.join(process.cwd(), this.submission)
+
+  if (mode === 'run') {
+    // run
+    console.log(`Calling plugin with left: ${left}, right: ${right}`)
+  }
+  this.solutionArgs = [this.solution, left, right]
+  this.submissionArgs = [submissionFilePath, left, right]
+
+  // this.solutionArgs = [this.solution, '--seneca.log.quiet']
+  // this.submissionArgs = [process.cwd() + '/' + this.submission, '--seneca.log.quiet']
+  this.solution = path.join(exercise.dir, '/seneca-plugin-executor.js')
+  this.submission = path.join(exercise.dir, '/seneca-plugin-executor.js')
+  callback()
 })
 
 // cleanup for both run and verify
