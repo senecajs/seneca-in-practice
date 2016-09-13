@@ -2,6 +2,7 @@ let exercise = require('workshopper-exercise')()
 const filecheck = require('workshopper-exercise/filecheck')
 const execute = require('workshopper-exercise/execute')
 const comparestdout = require('workshopper-exercise/comparestdout')
+const {getRandomInt} = require('../utils')
 const path = require('path')
 
 // cleanup for both run and verify
@@ -14,16 +15,27 @@ exercise = filecheck(exercise)
 exercise = execute(exercise)
 
 exercise.addSetup(function (mode, callback) {
+  let a, b
+  const submissionFilePath = path.join(process.cwd(), this.submission)
+
    // Test arguments to be summed
   if (mode === 'run') {
     // run
-    // TODO: If params are not passed, print a warning and generates them randomly
-    this.submissionArgs = [process.cwd() + '/' + this.submission, process.argv[4], process.argv[5]]
+    if (process.argv.length < 6) {
+      a = getRandomInt()
+      b = getRandomInt()
+      console.log(`Two arguments must be provided, generating random: ${a}, ${b}`)
+    } else {
+      a = process.argv[4]
+      b = process.argv[5]
+    }
+    this.submissionArgs = [submissionFilePath, a, b]
   } else {
     // verify
-    // TODO: Generate random params
-    this.solutionArgs = [this.solution, 2, 7]
-    this.submissionArgs = [process.cwd() + '/' + this.submission, 2, 7]
+    a = getRandomInt()
+    b = getRandomInt()
+    this.solutionArgs = [this.solution, a, b]
+    this.submissionArgs = [submissionFilePath, a, b]
   }
   this.solution = path.join(exercise.dir, '/seneca-client-executor.js')
   this.submission = path.join(exercise.dir, '/seneca-client-executor.js')

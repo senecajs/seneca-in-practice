@@ -5,6 +5,7 @@ const fs = require('fs')
 const path = require('path')
 const async = require('async')
 const _ = require('lodash')
+const {getRandomInt} = require('../utils')
 let exercise = require('workshopper-exercise')()
 
 // cleanup for both run and verify
@@ -82,12 +83,6 @@ exercise.getSolutionFiles = function (callback) {
 
 function getSolutionPath () {
   return path.join(exercise.dir, './solution/')
-}
-
-function getRandomInt (min, max) {
-  min = Math.ceil(min)
-  max = Math.floor(max)
-  return Math.floor(Math.random() * (max - min)) + min
 }
 
 module.exports = exercise
