@@ -39,7 +39,7 @@ exercise.addSetup(function (mode, callback) {
     this.submission = path.join(__dirname, '/seneca-override-executor-run.js')
   } else {
     this.solutionArgs = [this.solution]
-    this.submissionArgs = [submissionFilePath] // TODO: verify portability
+    this.submissionArgs = [submissionFilePath]
     this.solution = path.join(__dirname, '/seneca-override-executor.js')
     this.submission = path.join(__dirname, '/seneca-override-executor.js')
   }
