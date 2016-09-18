@@ -1,7 +1,7 @@
 let exercise = require('workshopper-exercise')()
 const filecheck = require('workshopper-exercise/filecheck')
 const execute = require('workshopper-exercise/execute')
-const comparestdout = require('workshopper-exercise/comparestdout')
+const comparestdout = require('../comparestdout-filterlogs')
 const {getRandomInt} = require('../utils')
 const path = require('path')
 
@@ -34,6 +34,9 @@ exercise.addSetup(function (mode, callback) {
     // verify
     a = getRandomInt()
     b = getRandomInt()
+    console.log('this.solution', this.solution)
+    console.log('this.submissionFilePath', submissionFilePath)
+
     this.solutionArgs = [this.solution, a, b]
     this.submissionArgs = [submissionFilePath, a, b]
   }

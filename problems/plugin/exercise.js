@@ -1,7 +1,7 @@
 let exercise = require('workshopper-exercise')()
 const filecheck = require('workshopper-exercise/filecheck')
 const execute = require('workshopper-exercise/execute')
-const comparestdout = require('workshopper-exercise/comparestdout')
+const comparestdout = require('../comparestdout-filterlogs')
 const path = require('path')
 const {getRandomInt} = require('../utils')
 
