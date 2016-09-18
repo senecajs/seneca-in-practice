@@ -16,6 +16,7 @@ workshopper({
   subtitle: 'Learn how to make Microservices with Seneca',
   exerciseDir: fpath('/problems/'),
   appDir: __dirname,
+  languages: ['en'],
   menu: {
     bg: 'red'
   },
