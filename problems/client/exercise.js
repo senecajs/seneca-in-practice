@@ -40,8 +40,8 @@ exercise.addSetup(function (mode, callback) {
     this.solutionArgs = [this.solution, a, b]
     this.submissionArgs = [submissionFilePath, a, b]
   }
-  this.solution = path.join(exercise.dir, '/seneca-client-executor.js')
-  this.submission = path.join(exercise.dir, '/seneca-client-executor.js')
+  this.solution = path.join(exercise.dir, '../seneca-client-executor.js')
+  this.submission = path.join(exercise.dir, '../seneca-client-executor.js')
   callback()
 })
 
