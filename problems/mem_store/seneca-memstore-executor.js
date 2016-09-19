@@ -5,9 +5,14 @@ var async = require('async')
  * Executes the submitted and the solution, to compare the stdout.
  * The module to be require as the first param.
  */
-var mod = require(process.argv[2])
-var seneca = require('seneca')().use(mod)
+var seneca = require('seneca')({
+  default_plugins: {
+    'mem-store': true
+  }
+})
+
 seneca.use('entity')
+seneca.use(process.argv[2])
 
 async.waterfall([
   function (callback) {
@@ -27,13 +32,13 @@ async.waterfall([
       if (err) return console.error(err)
       callback()
     })
-  }],
-  function () {
-    seneca.act({role: 'math', cmd: 'operation-history'}, function (err, result) {
-      if (err) return console.error(err)
-      result.answer.forEach(function (en) {
-        console.log(en.cmd, en.left, en.right)
-      })
-    })
   }
-)
+]
+, function () {
+  seneca.act({role: 'math', cmd: 'operation-history'}, function (err, result) {
+    if (err) return console.error(err)
+    result.answer.forEach(function (en) {
+      console.log(en.cmd, en.left, en.right)
+    })
+  })
+})
