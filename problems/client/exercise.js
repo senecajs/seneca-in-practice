@@ -34,8 +34,6 @@ exercise.addSetup(function (mode, callback) {
     // verify
     a = getRandomInt()
     b = getRandomInt()
-    console.log('this.solution', this.solution)
-    console.log('this.submissionFilePath', submissionFilePath)
 
     this.solutionArgs = [this.solution, a, b]
     this.submissionArgs = [submissionFilePath, a, b]

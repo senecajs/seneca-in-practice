@@ -1,10 +1,11 @@
-var through2 = require('through2')
-var hyperquest = require('hyperquest')
-var exercise = require('workshopper-exercise')()
-var filecheck = require('workshopper-exercise/filecheck')
-var execute = require('workshopper-exercise/execute')
-var comparestdout = require('workshopper-exercise/comparestdout')
-var eos = require('end-of-stream')
+const through2 = require('through2')
+const hyperquest = require('hyperquest')
+let exercise = require('workshopper-exercise')()
+const filecheck = require('workshopper-exercise/filecheck')
+const execute = require('workshopper-exercise/execute')
+const comparestdout = require('../comparestdout-filterlogs')
+const eos = require('end-of-stream')
+const {getRandomInt} = require('../utils')
 
 // checks that the submission file actually exists
 exercise = filecheck(exercise)
@@ -16,20 +17,23 @@ function rndport () {
   return 1024 + Math.floor(Math.random() * 64511)
 }
 
+let a, b, cmd
+
 /**
- * The seneca log is set to "quiet" to have a clean comparation of stdouts.
  * We use a random port to avoid collision with possible hhanged porcess on
  * ports.
  */
 exercise.addSetup(function (mode, callback) {
   this.submissionPort = rndport()
   this.solutionPort = this.submissionPort + 1
-
   this.submissionArgs = [this.submissionPort]
-  this.solutionArgs = [this.solutionPort]
-
-  this.solutionArgs.push('--seneca.log.quiet')
-  this.submissionArgs.push('--seneca.log.quiet')
+  a = getRandomInt()
+  b = getRandomInt()
+  cmd = 'sum'
+  if (mode === 'verify') {
+    this.solutionArgs = [this.solutionPort]
+  }
+  console.log(`Invoking ${cmd} with random generated: ${a}, ${b}:`)
   process.nextTick(callback)
 })
 
@@ -37,15 +41,12 @@ exercise.addSetup(function (mode, callback) {
 // the comparestdout processor so we can mess with the stdouts
 exercise.addProcessor(function (mode, callback) {
   this.submissionStdout.pipe(process.stdout)
-
   // replace stdout with our own streams
   this.submissionStdout = through2()
+
   if (mode === 'verify') {
     this.solutionStdout = through2()
   }
-
-  // Start the solution
-  require(this.solution)
 
   setTimeout(query.bind(this, mode, callback), 500)
 
@@ -66,7 +67,7 @@ function query (mode, callback) {
     // Should we pass the port?
   function connect (port, stream) {
     var input = through2()
-    var url = 'http://localhost:' + port + '/act?role=math&cmd=sum&left=12&right=2'
+    var url = `http://localhost:${port}/act?role=math&cmd=${cmd}&left=${a}&right=${b}`
     eos(input, function () {
       // Sena CTRL-C after 500 millis
       setTimeout(function () {
