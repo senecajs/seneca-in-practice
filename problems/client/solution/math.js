@@ -1,9 +1,9 @@
 'use strict'
 
-var seneca = require('seneca')()
+const seneca = require('seneca')()
 
-seneca.add({ role: 'math', cmd: 'sum' }, function (msg, respond) {
-  var sum = parseInt(msg.left, 10) + parseInt(msg.right, 10)
+seneca.add({ role: 'math', cmd: 'sum' }, (msg, respond) => {
+  const sum = msg.left + msg.right
   respond(null, {answer: sum})
 })
 

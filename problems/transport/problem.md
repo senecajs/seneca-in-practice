@@ -10,11 +10,11 @@ Running this code starts a Microservice process that listens on port 10101
 (the default) for HTTP requests. This is not a web server.
 In this case, HTTP is being used as the transport mechanism for messages.
 
-Note that if no host is specified, the client will try to connect to host at 0.0.0.0,
+Note that if no host is specified, seneca will try to connect to host at 0.0.0.0,
 which do not work on Windows. To avoid that, just pass options to listen, e.g.:
 
 ```
-seneca.listen(8080, '192.168.0.2')
+seneca.listen({port: 8080, host:'127.0.0.1')
 ```
 
 The HTTP transport provides an easy way to integrate with Seneca Microservices,

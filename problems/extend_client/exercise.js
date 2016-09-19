@@ -1,7 +1,12 @@
-var exercise = require('workshopper-exercise')()
-var filecheck = require('workshopper-exercise/filecheck')
-var execute = require('workshopper-exercise/execute')
-var comparestdout = require('workshopper-exercise/comparestdout')
+let exercise = require('workshopper-exercise')()
+const filecheck = require('workshopper-exercise/filecheck')
+const execute = require('workshopper-exercise/execute')
+const comparestdout = require('../comparestdout-filterlogs')
+const {getRandomFloat} = require('../utils')
+const path = require('path')
+
+// cleanup for both run and verify
+exercise.addCleanup(function (mode, passed, callback) { /* Do nothing */ })
 
 // checks that the submission file actually exists
 exercise = filecheck(exercise)
@@ -9,28 +14,38 @@ exercise = filecheck(exercise)
 // execute the solution and submission in parallel with spawn()
 exercise = execute(exercise)
 
-// compare stdout of solution and submission
-exercise = comparestdout(exercise)
-
-/**
- * Uses seneca-executor.js and pass the module to be required as param.
- * The executoor will require the module and then execute it using seneca.
- * (note that this is quite different from the "normal" workshopper-exercise).
- * The seneca log is set to "quiet" to have a clean comparation of stdouts.
- */
 exercise.addSetup(function (mode, callback) {
-  this.solutionArgs = [this.solution, 2.5, 7.8, '--seneca.log.quiet']
+  let a, b
+  const submissionFilePath = path.join(process.cwd(), this.submission)
+
+   // Test arguments to be summed
   if (mode === 'run') {
-    this.submissionArgs = [process.cwd() + '/' + this.submission, process.argv[4], process.argv[5], '--seneca.log.quiet'] // TODO: verify portability
+    // run
+    if (process.argv.length < 6) {
+      a = getRandomFloat()
+      b = getRandomFloat()
+      console.log(`Two arguments must be provided, generating random: ${a}, ${b}`)
+    } else {
+      a = process.argv[4]
+      b = process.argv[5]
+    }
+    this.submissionArgs = [submissionFilePath, a, b]
   } else {
-    this.submissionArgs = [process.cwd() + '/' + this.submission, 2.5, 7.8, '--seneca.log.quiet'] // TODO: verify portability
+    // verify
+    a = getRandomFloat()
+    b = getRandomFloat()
+    console.log('this.solution', this.solution)
+    console.log('this.submissionFilePath', submissionFilePath)
+
+    this.solutionArgs = [this.solution, a, b]
+    this.submissionArgs = [submissionFilePath, a, b]
   }
-  this.solution = __dirname + '/seneca-extend-client-executor.js'
-  this.submission = __dirname + '/seneca-extend-client-executor.js'
-  callback(null)
+  this.solution = path.join(exercise.dir, '../seneca-client-executor.js')
+  this.submission = path.join(exercise.dir, '../seneca-client-executor.js')
+  callback()
 })
 
-// cleanup for both run and verify
-exercise.addCleanup(function (mode, passed, callback) { /* Do nothing */ })
+// compare stdout of solution and submission
+exercise = comparestdout(exercise)
 
 module.exports = exercise

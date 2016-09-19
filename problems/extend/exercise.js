@@ -1,32 +1,89 @@
-var exercise = require('workshopper-exercise')()
-var filecheck = require('workshopper-exercise/filecheck')
-var execute = require('workshopper-exercise/execute')
-var comparestdout = require('workshopper-exercise/comparestdout')
+'use strict'
+
+const filecheck = require('workshopper-exercise/filecheck')
+const fs = require('fs')
+const path = require('path')
+const async = require('async')
+const _ = require('lodash')
+const {getRandomFloat} = require('../utils')
+let exercise = require('workshopper-exercise')()
+var seneca = require('seneca')()
+
+// cleanup for both run and verify
+exercise.addCleanup((mode, passed, callback) => { /* Do nothing */ })
 
 // checks that the submission file actually exists
 exercise = filecheck(exercise)
 
-// execute the solution and submission in parallel with spawn()
-exercise = execute(exercise)
-
-// compare stdout of solution and submission
-exercise = comparestdout(exercise)
+// Test params
+let a, b
 
 /**
- * Uses seneca-executor.js and pass the module to be required as param.
- * The executoor will require the module and then execute it using seneca.
- * (note that this is quite different from the "normal" workshopper-exercise).
- * The seneca log is set to "quiet" to have a clean comparation of stdouts.
+ * If mode === run, get the params from args
  */
-exercise.addSetup(function (mode, callback) {
-  this.solutionArgs = [this.solution, '--seneca.log.quiet']
-  this.submissionArgs = [process.cwd() + '/' + this.submission, '--seneca.log.quiet'] // TODO: verify portability
-  this.solution = __dirname + '/seneca-extend-executor.js'
-  this.submission = __dirname + '/seneca-extend-executor.js'
-  callback(null)
+exercise.addSetup(function (mode, cb) {
+  a = getRandomFloat(0, 100)
+  b = getRandomFloat(0, 100)
+  this.solutionModule = require(getSolutionPath() + 'solution.js')
+  this.submissionModule = require([process.cwd(), this.args[0]].join('/'))
+  cb()
 })
 
-// cleanup for both run and verify
-exercise.addCleanup(function (mode, passed, callback) { /* Do nothing */ })
+/**
+ * Processor
+ */
+exercise.addProcessor(function (mode, callback) {
+  let solutionResult, submissionResult
+  const that = this
+  let pass = true
+  async.series([
+    cb => {
+      return seneca.use(that.submissionModule).act({role: 'math', cmd: 'sum', integer: true, left: a, right: b}, cb)
+    },
+    cb => {
+      if (mode === 'verify') {
+        return seneca.use(that.solutionModule).act({role: 'math', cmd: 'sum', integer: true, left: a, right: b}, cb)
+      }
+      cb()
+    }
+  ], (err, results) => {
+    submissionResult = results[0]
+    if (mode === 'run') {
+      console.log(`Execution with left: ${a}, right: ${b} returned: ${JSON.stringify(submissionResult)}`)
+    } else {
+      solutionResult = results[1]
+      if (!_.isEqual(solutionResult, submissionResult)) {
+        exercise.emit('fail', `Expected result: ${JSON.stringify(solutionResult)}` +
+                              `, Actual result: ${JSON.stringify(submissionResult)}`)
+        pass = false
+      } else {
+        exercise.emit('success', `Expected result: ${JSON.stringify(solutionResult)} ` +
+                              `Actual result: ${JSON.stringify(submissionResult)}`)
+        pass = true
+      }
+      return callback(err, pass)
+    }
+  })
+})
+
+// Print out the suggested solution when the student passes. This is copied from
+// workshopper-exercise/execute because the rest of execute is not relevant to
+// the way this is tested.
+exercise.getSolutionFiles = function (callback) {
+  var solutionDir = getSolutionPath()
+  fs.readdir(solutionDir, function (err, list) {
+    if (err) {
+      return callback(err)
+    }
+    list = list
+        .filter(function (f) { return (/\.js$/).test(f) })
+        .map(function (f) { return path.join(solutionDir, f) })
+    callback(null, list)
+  })
+}
+
+function getSolutionPath () {
+  return path.join(exercise.dir, './solution/')
+}
 
 module.exports = exercise

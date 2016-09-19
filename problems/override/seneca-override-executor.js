@@ -14,6 +14,7 @@ seneca.act({role: 'math', cmd: 'sum', left: 'michele', right: 2.5}, function (er
   return console.log('false')
 })
 
+// TODO: Generate random
 seneca.act({role: 'math', cmd: 'sum', left: 1.5, right: 2.5}, function (err, result) {
   if (err) return console.error(err)
   console.log(result)

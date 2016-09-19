@@ -1,7 +1,8 @@
 var exercise = require('workshopper-exercise')()
 var filecheck = require('workshopper-exercise/filecheck')
 var execute = require('workshopper-exercise/execute')
-var comparestdout = require('workshopper-exercise/comparestdout')
+const comparestdout = require('../comparestdout-filterlogs')
+const path = require('path')
 
 // checks that the submission file actually exists
 exercise = filecheck(exercise)
@@ -19,11 +20,13 @@ exercise = comparestdout(exercise)
  * The seneca log is set to "quiet" to have a clean comparation of stdouts.
  */
 exercise.addSetup(function (mode, callback) {
-  this.solutionArgs = [this.solution, '--seneca.log.quiet']
-  this.submissionArgs = [process.cwd() + '/' + this.submission, '--seneca.log.quiet'] // TODO: verify portability
-  this.solution = __dirname + '/seneca-memstore-executor.js'
-  this.submission = __dirname + '/seneca-memstore-executor.js'
-  callback(null)
+  const submissionFilePath = path.join(process.cwd(), this.submission)
+
+  this.solutionArgs = [this.solution]
+  this.submissionArgs = [submissionFilePath]
+  this.solution = path.join(__dirname, '/seneca-memstore-executor.js')
+  this.submission = path.join(__dirname, '/seneca-memstore-executor.js')
+  callback()
 })
 
 // cleanup for both run and verify

@@ -1,7 +1,12 @@
-var exercise = require('workshopper-exercise')()
-var filecheck = require('workshopper-exercise/filecheck')
-var execute = require('workshopper-exercise/execute')
-var comparestdout = require('workshopper-exercise/comparestdout')
+let exercise = require('workshopper-exercise')()
+const filecheck = require('workshopper-exercise/filecheck')
+const execute = require('workshopper-exercise/execute')
+const comparestdout = require('../comparestdout-filterlogs')
+const {getRandomInt} = require('../utils')
+const path = require('path')
+
+// cleanup for both run and verify
+exercise.addCleanup(function (mode, passed, callback) { /* Do nothing */ })
 
 // checks that the submission file actually exists
 exercise = filecheck(exercise)
@@ -9,27 +14,36 @@ exercise = filecheck(exercise)
 // execute the solution and submission in parallel with spawn()
 exercise = execute(exercise)
 
-// compare stdout of solution and submission
-exercise = comparestdout(exercise)
-/**
- * The seneca log is set to "quiet" to have a clean comparation of stdouts.
- */
 exercise.addSetup(function (mode, callback) {
+  let a, b
+  const submissionFilePath = path.join(process.cwd(), this.submission)
+
    // Test arguments to be summed
   if (mode === 'run') {
     // run
-    this.submissionArgs = [process.cwd() + '/' + this.submission, process.argv[4], process.argv[5]]
+    if (process.argv.length < 6) {
+      a = getRandomInt()
+      b = getRandomInt()
+      console.log(`Two arguments must be provided, generating random: ${a}, ${b}`)
+    } else {
+      a = process.argv[4]
+      b = process.argv[5]
+    }
+    this.submissionArgs = [submissionFilePath, a, b]
   } else {
     // verify
-    this.solutionArgs = [this.solution, 2, 7]
-    this.submissionArgs = [process.cwd() + '/' + this.submission, 2, 7]
+    a = getRandomInt()
+    b = getRandomInt()
+
+    this.solutionArgs = [this.solution, a, b]
+    this.submissionArgs = [submissionFilePath, a, b]
   }
-  this.solution = __dirname + '/seneca-client-executor.js'
-  this.submission = __dirname + '/seneca-client-executor.js'
+  this.solution = path.join(exercise.dir, '../seneca-client-executor.js')
+  this.submission = path.join(exercise.dir, '../seneca-client-executor.js')
   callback()
 })
 
-// cleanup for both run and verify
-exercise.addCleanup(function (mode, passed, callback) { /* Do nothing */ })
+// compare stdout of solution and submission
+exercise = comparestdout(exercise)
 
 module.exports = exercise
