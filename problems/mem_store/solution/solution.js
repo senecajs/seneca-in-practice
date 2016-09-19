@@ -25,6 +25,11 @@ module.exports = function math (options) {
     })
   })
 
+  this.add({role: 'math', cmd: 'sum', integer: 'true'}, function (msg, respond) {
+    var sum = Math.floor(msg.left) + Math.floor(msg.right)
+    respond(null, {answer: sum})
+  })
+
   // override role:math,cmd:sum with additional functionality
   this.add({role: 'math', cmd: 'sum'}, function (msg, respond) {
     // bail out early if there's a problem
@@ -38,11 +43,6 @@ module.exports = function math (options) {
       result.info = `${msg.left} + ${msg.right}`
       respond(null, result)
     })
-  })
-
-  this.add({role: 'math', cmd: 'sum', integer: 'true'}, function (msg, respond) {
-    var sum = Math.floor(msg.left) + Math.floor(msg.right)
-    respond(null, {answer: sum})
   })
 
   this.wrap({role: 'math'}, function (msg, respond) {

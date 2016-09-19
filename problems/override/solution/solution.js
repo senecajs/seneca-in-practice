@@ -4,6 +4,16 @@ module.exports = function math (options) {
     respond(null, {answer: sum})
   })
 
+  this.add({role: 'math', cmd: 'product'}, (msg, respond) => {
+    var product = msg.left * msg.right
+    respond(null, {answer: product})
+  })
+
+  this.add({role: 'math', cmd: 'sum', integer: 'true'}, (msg, respond) => {
+    var sum = Math.floor(msg.left) + Math.floor(msg.right)
+    respond(null, {answer: sum})
+  })
+
   // override role:math,cmd:sum with additional functionality
   this.add({role: 'math', cmd: 'sum'}, function (msg, respond) {  // THIS CANNOT BE A FAT ARROW
     // bail out early if there's a problem
@@ -17,15 +27,5 @@ module.exports = function math (options) {
       result.info = `${msg.left} + ${msg.right}`
       respond(null, result)
     })
-  })
-
-  this.add({role: 'math', cmd: 'sum', integer: 'true'}, (msg, respond) => {
-    var sum = Math.floor(msg.left) + Math.floor(msg.right)
-    respond(null, {answer: sum})
-  })
-
-  this.add({role: 'math', cmd: 'product'}, (msg, respond) => {
-    var product = msg.left * msg.right
-    respond(null, {answer: product})
   })
 }

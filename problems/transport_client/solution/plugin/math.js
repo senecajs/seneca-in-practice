@@ -4,8 +4,18 @@ module.exports = function math (options) {
     respond(null, {answer: sum})
   })
 
+  this.add({role: 'math', cmd: 'product'}, (msg, respond) => {
+    var product = msg.left * msg.right
+    respond(null, {answer: product})
+  })
+
+  this.add({role: 'math', cmd: 'sum', integer: 'true'}, (msg, respond) => {
+    var sum = Math.floor(msg.left) + Math.floor(msg.right)
+    respond(null, {answer: sum})
+  })
+
   // override role:math,cmd:sum with additional functionality
-  this.add({role: 'math', cmd: 'sum'}, function (msg, respond) {  // THIS CANNOT BE A FAT ARROW
+  this.add({role: 'math', cmd: 'sum'}, function (msg, respond) {
     // bail out early if there's a problem
     if (!isFinite(msg.left) || !isFinite(msg.right)) {
       return respond(new Error('Expected left and right to be numbers.'))
@@ -17,16 +27,6 @@ module.exports = function math (options) {
       result.info = `${msg.left} + ${msg.right}`
       respond(null, result)
     })
-  })
-
-  this.add({role: 'math', cmd: 'sum', integer: 'true'}, (msg, respond) => {
-    var sum = Math.floor(msg.left) + Math.floor(msg.right)
-    respond(null, {answer: sum})
-  })
-
-  this.add({role: 'math', cmd: 'product'}, (msg, respond) => {
-    var product = msg.left * msg.right
-    respond(null, {answer: product})
   })
 
   this.wrap({role: 'math'}, function (msg, respond) {
