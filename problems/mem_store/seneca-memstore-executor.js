@@ -5,12 +5,9 @@ var async = require('async')
  * Executes the submitted and the solution, to compare the stdout.
  * The module to be require as the first param.
  */
-var seneca = require('seneca')({
-  default_plugins: {
-    'mem-store': true
-  }
-})
+var seneca = require('seneca')()
 
+seneca.use('basic')
 seneca.use('entity')
 seneca.use(process.argv[2])
 
