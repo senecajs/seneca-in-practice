@@ -1,7 +1,8 @@
 var exercise = require('workshopper-exercise')()
 var filecheck = require('workshopper-exercise/filecheck')
 var execute = require('workshopper-exercise/execute')
-var comparestdout = require('workshopper-exercise/comparestdout')
+const {getRandomInt} = require('../utils')
+const comparestdout = require('../comparestdout-filterlogs')
 
 // checks that the submission file actually exists
 exercise = filecheck(exercise)
@@ -12,25 +13,34 @@ exercise = execute(exercise)
 // compare stdout of solution and submission
 exercise = comparestdout(exercise)
 
+let a, b
+
 /**
  * The seneca log is set to "quiet" to have a clean comparation of stdouts.
  */
 exercise.addSetup(function (mode, callback) {
+  if (mode === 'run') {
+    if (process.argv.length < 6) {
+      a = getRandomInt()
+      b = getRandomInt()
+      console.log(`Two arguments must be provided, generating random: ${a}, ${b}`)
+    } else {
+      a = process.argv[4]
+      b = process.argv[5]
+    }
+  } else {
+    // verify
+    a = getRandomInt()
+    b = getRandomInt()
+  }
+
   this.seneca = require('seneca')()
   // Start the Seneca Microservice
   this.seneca.use('solution/plugin/math.js').listen({type: 'tcp'})
 
-  var testArgs = [13, 65] // Test arguments to be summed
-  if (mode === 'run') {
-    this.submissionArgs = this.submissionArgs.concat([process.argv[4], process.argv[5]])
-  } else {
-    this.submissionArgs = this.submissionArgs.concat(testArgs)
-  }
-
-  this.solutionArgs = this.solutionArgs.concat(testArgs)
+  var testArgs = [a, b]
   this.submissionArgs = this.submissionArgs.concat(testArgs)
-  this.solutionArgs.push('--seneca.log.quiet')
-  this.submissionArgs.push('--seneca.log.quiet')
+  this.solutionArgs = this.solutionArgs.concat(testArgs)
 
   setTimeout(function () {
     callback()
