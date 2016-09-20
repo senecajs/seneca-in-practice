@@ -35,7 +35,7 @@ async.waterfall([
   seneca.act({role: 'math', cmd: 'operation-history'}, function (err, result) {
     if (err) return console.error(err)
     result.answer.forEach(function (en) {
-      console.log(en.cmd, en.left, en.right)
+      console.log(`Operation executed: ${en.cmd} on (${en.left}, ${en.right})`)
     })
   })
 })

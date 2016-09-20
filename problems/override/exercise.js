@@ -33,13 +33,14 @@ exercise.addSetup(function (mode, callback) {
       a = process.argv[4]
       b = process.argv[5]
     }
-
     this.submissionArgs = [submissionFilePath, a, b]
     this.solution = path.join(__dirname, '/seneca-override-executor-run.js')
     this.submission = path.join(__dirname, '/seneca-override-executor-run.js')
   } else {
-    this.solutionArgs = [this.solution]
-    this.submissionArgs = [submissionFilePath]
+    a = getRandomInt()
+    b = getRandomInt()
+    this.solutionArgs = [this.solution, a, b]
+    this.submissionArgs = [submissionFilePath, a, b]
     this.solution = path.join(__dirname, '/seneca-override-executor.js')
     this.submission = path.join(__dirname, '/seneca-override-executor.js')
   }
