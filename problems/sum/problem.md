@@ -24,8 +24,8 @@ seneca.add( 'role:greetings,cmd:hello', function( msg, respond ) {
     respond( null, { answer: hello });
 });
 ```
-
-Note that you can specify patterns alternatively as `Object`:
+In the above example the pattern has been expressed as `String` but
+you can also specify patterns as `Object` like this:
 
 ```javascript
 seneca.add({role: 'greetings', cmd: 'hello'}, ...);
