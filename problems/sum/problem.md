@@ -19,16 +19,16 @@ _role_ `greetings` (so configuring the Microservice to answer to a
 
 ```javascript
 var seneca = require('seneca')()
-seneca.add( 'role:greetings,cmd:hello', function( msg, respond ) {
+seneca.add( {role: 'greetings', cmd: 'hello'}, function( msg, respond ) {
     var hello = "Hello " + msg.name;
     respond( null, { answer: hello });
 });
 ```
-In the above example the pattern has been expressed as `String` but
-you can also specify patterns as `Object` like this:
+In the above example the pattern has been expressed as `Object` but
+you can also specify patterns as `String` like this:
 
 ```javascript
-seneca.add({role: 'greetings', cmd: 'hello'}, ...);
+seneca.add( 'role:greetings,cmd:hello', ...);
 ```
 
 The challenge for this step is to build a simple Seneca service
