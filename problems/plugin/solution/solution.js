@@ -3,4 +3,5 @@ module.exports = function math (options) {
     var sum = msg.left + msg.right
     respond(null, {answer: sum})
   })
+  return 'operations'
 }

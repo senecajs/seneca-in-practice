@@ -21,7 +21,22 @@ var plugin = function(options) {
 }
 ```
 
-and it could be loaded in this way:
+It's possible to assign a name to a plugin. In order to do that you need return 
+a string from the plugin definition function, like this:
+
+```javascript
+var plugin = function(options) {
+
+   this.add('role:greetings, cmd:hello', function(msg, respond) {
+         var hello = "Hello " + msg.name;
+         respond(null, {answer: hello });
+     });  
+
+   return 'interaction'
+}
+```
+
+Once defined the above plugin could be loaded in this way:
 
 ```javascript
 var seneca = require('seneca')()
@@ -33,7 +48,7 @@ seneca.act( 'role:greetings, cmd:hello, name:michele', console.log )
 
 ```
 
-The goal of the exercise is to write a plugin that sums two numbers, as we
+The goal of the exercise is to write a plugin called `operations` that sums two numbers, as we
 did for the first step. For the purpose of this exercise, do not require seneca
 directly, just create a module that exports a function that defines the patterns,
 using `this.add` instead of `seneca.add` as we did in previous step.
