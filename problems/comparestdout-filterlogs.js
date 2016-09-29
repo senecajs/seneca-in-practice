@@ -9,12 +9,12 @@ const through2 = require('through2')
 const wcstring = require('wcstring')
 const filter = require('through2-filter')
 
-// Works only with seneca3.* logs (JSONs) and with acunk fr a line (so -for instance-
+// Works only with seneca3.* logs (JSONs) and with chunk which is a line (so -for instance-
 // after a split)
 const checkSenecaLogs = chunk => {
   try {
     const line = JSON.parse(chunk)
-    if ((line.seneca) && (line.level)) { // we assume seneca log has this props
+    if (line.level) { // we assume seneca log has this prop
       return false
     }
   } catch (e) {}
