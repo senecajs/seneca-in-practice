@@ -7,9 +7,7 @@
 
 var mod = require(process.argv[2])
 
-var seneca = require('seneca')({
-  log: { level: 'error+' }
-})
+var seneca = require('seneca')()
 
 const left = process.argv[3]
 const right = process.argv[4]
