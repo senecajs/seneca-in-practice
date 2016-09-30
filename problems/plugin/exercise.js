@@ -29,8 +29,8 @@ exercise.addSetup(function (mode, callback) {
     // run
     console.log(`Calling plugin with left: ${left}, right: ${right}`)
   }
-  this.solutionArgs = [this.solution, '--seneca.log=plugin:operations', left, right]
-  this.submissionArgs = [submissionFilePath, '--seneca.log=plugin:operations', left, right]
+  this.solutionArgs = [this.solution, left, right]
+  this.submissionArgs = [submissionFilePath, left, right]
 
   // this.solutionArgs = [this.solution, '--seneca.log.quiet']
   // this.submissionArgs = [process.cwd() + '/' + this.submission, '--seneca.log.quiet']
