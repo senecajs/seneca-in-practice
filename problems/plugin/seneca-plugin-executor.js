@@ -16,5 +16,7 @@ seneca.use(mod).act(`role:math, cmd:sum, left: ${left}, right:${right}`, (err, r
   if (err) {
     return console.log(err)
   }
+
+  console.log(`PLUGIN NAME CORRECT: ${seneca.hasplugin('operations')}`)
   console.log(res)
 })
