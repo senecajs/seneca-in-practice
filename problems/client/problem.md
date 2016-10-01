@@ -23,9 +23,9 @@ seneca.act({role: 'greetings', cmd: 'hello', name: 'Marco'},
 The goal of the exercise is to build a simple {italic}sum{/italic} service
 client for the pattern defined in the previous exercise.
 The client must add the two numbers passed as parameters (use `process.argv`) and
-print out the result using `console.log`. Keep in mind that process.argv are
-passed as string so you might want to transform them into numbers and that
-the first parameter will be on position 2 of argv.
+print out the result obtained from Seneca using `console.log`.
+Keep in mind that process.argv are passed as string so you might want to transform
+them into numbers and that the first parameter will be on position 2 of argv.
 
 Also, copy or rename the solution of the previous exercise in a `math.js` module,
 so it can be required:
@@ -35,8 +35,8 @@ var seneca = require('./math')
 
 (...)
 ```
-
-Also,
+In this way we are using the Seneca instance from the previous exercise, which
+is exported from `math.js`. Again, that will change using Seneca plugins.
 
 When you have completed your program, you can run it with:
 

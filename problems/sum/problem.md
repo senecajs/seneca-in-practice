@@ -34,7 +34,7 @@ seneca.add( 'role:greetings,cmd:hello', ...);
 The challenge for this step is to build a simple Seneca service
 for the role `math` and command `sum`.
 The service has to calculate the sum of the `left` and `right` property of
-the message.
+the message and return it in the form `{answer: sum}`
 For the purpose of this exercise, at the end of the solution you have to
 export Seneca. Note that **this is usually not necessary** since we can
 organize Microservices in plugins (see the plugin exercise about that).

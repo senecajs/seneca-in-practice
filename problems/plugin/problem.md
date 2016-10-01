@@ -1,8 +1,7 @@
 ---
 
-When you use the Seneca framework, you write plugins all the time. There is an
-easy way to organize your action patterns, like the exercise that you've just
-done.
+When you use the Seneca framework, you write plugins all the time. This is an
+easy way to organize your action patterns.
 
 A Seneca plugin is just a function that gets passed an {italic}options{/italic}
 object, and has a Seneca instance as its {italic}this{/italic} variable.
@@ -21,7 +20,7 @@ var plugin = function(options) {
 }
 ```
 
-It's possible to assign a name to a plugin. In order to do that you need return 
+It's possible to assign a name to a plugin. In order to do that you need return
 a string from the plugin definition function, like this:
 
 ```javascript
@@ -48,10 +47,10 @@ seneca.act( 'role:greetings, cmd:hello, name:michele', console.log )
 
 ```
 
-The goal of the exercise is to write a plugin called `operations` that sums two numbers, as we
-did for the first step. For the purpose of this exercise, do not require seneca
-directly, just create a module that exports a function that defines the patterns,
-using `this.add` instead of `seneca.add` as we did in previous step.
+The goal of the exercise is to write a plugin called `operations` that sums two
+numbers, as we did for the first step. For the purpose of this exercise, ***do not
+require Seneca directly*** just create a module that exports a function that defines
+the patterns, using `this.add` instead of `seneca.add` as we did in previous step.
 
 When you have completed your program, you can run it with:
 
