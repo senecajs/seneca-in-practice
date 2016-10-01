@@ -5,7 +5,7 @@ Where:
 - `name`: The name you wish to call the decorated function or object.
 - `handler`: The handler the decorate seneca with. This can be a function or an object.
 
-For instance here we add a `stamp` function:
+For instance here we add a stamp function that will print a time stamp when invoked:
 
 ```
 var seneca = require('seneca')
@@ -17,7 +17,7 @@ seneca.decorate('stamp', (pattern) => {
 seneca.stamp('role:echo')
 ```
 
-Also Plugins are a good place where to add decorations. See below:
+Also, Plugins are a good place where to add decorations. See below:
 
 ```
 function plugin (opts) {
@@ -31,7 +31,7 @@ function plugin (opts) {
 }
 ```
 
-The goal of the exercise is to make the math plugin obtained so far to decorate
+The goal of the exercise is to make the math plugin developed so far to decorate
 Seneca with a `availableOperations` function, that must return the list of the
 available operations (i.e. `['sum', 'product', 'operation-history']`)
 
