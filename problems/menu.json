@@ -9,5 +9,6 @@
     "Pin",
     "Transport",
     "Transport Client",
-    "Mem Store"
+    "Mem Store",
+    "Decorate"
 ]
