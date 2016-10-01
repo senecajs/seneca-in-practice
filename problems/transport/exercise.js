@@ -33,7 +33,6 @@ exercise.addSetup(function (mode, callback) {
   if (mode === 'verify') {
     this.solutionArgs = [this.solutionPort]
   }
-  console.log(`Invoking ${cmd} with random generated: ${a}, ${b}:`)
   process.nextTick(callback)
 })
 
@@ -48,7 +47,9 @@ exercise.addProcessor(function (mode, callback) {
     this.solutionStdout = through2()
   }
 
-  setTimeout(query.bind(this, mode, callback), 500)
+  // After 5 secs, try to query. We have to wait so much for Win...
+  setTimeout(query.bind(this, mode, callback), 5000)
+  console.log(`Invoking ${cmd} with random generated: ${a}, ${b}`)
 
   process.nextTick(function () {
     callback(null, true)
@@ -67,10 +68,12 @@ function query (mode, callback) {
     // Should we pass the port?
   function connect (port, stream) {
     var input = through2()
-    var url = `http://localhost:${port}/act?role=math&cmd=${cmd}&left=${a}&right=${b}`
+
+    var url = `http://127.0.0.1:${port}/act?role=math&cmd=${cmd}&left=${a}&right=${b}`
     eos(input, function () {
       // Sena CTRL-C after 500 millis
       setTimeout(function () {
+        console.log('\n')
         process.kill(process.pid, 'SIGINT')
       }, 500)
     })
