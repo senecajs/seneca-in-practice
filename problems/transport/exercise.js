@@ -48,7 +48,7 @@ exercise.addProcessor(function (mode, callback) {
     this.solutionStdout = through2()
   }
 
-  setTimeout(query.bind(this, mode, callback), 500)
+  setTimeout(query.bind(this, mode, callback), 1000)
 
   process.nextTick(function () {
     callback(null, true)
@@ -67,9 +67,9 @@ function query (mode, callback) {
     // Should we pass the port?
   function connect (port, stream) {
     var input = through2()
-    var url = `http://localhost:${port}/act?role=math&cmd=${cmd}&left=${a}&right=${b}`
+    var url = `http://127.0.0.1:${port}/act?role=math&cmd=${cmd}&left=${a}&right=${b}`
     eos(input, function () {
-      // Sena CTRL-C after 500 millis
+      // Send CTRL-C after 500 millis
       setTimeout(function () {
         process.kill(process.pid, 'SIGINT')
       }, 500)
