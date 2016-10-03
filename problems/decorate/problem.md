@@ -7,7 +7,7 @@ Where:
 
 For instance here we add a stamp function that will print a time stamp when invoked:
 
-```
+```javascript
 var seneca = require('seneca')
 
 seneca.decorate('stamp', (pattern) => {
@@ -19,7 +19,7 @@ seneca.stamp('role:echo')
 
 Also, Plugins are a good place where to add decorations. See below:
 
-```
+```javascript
 function plugin (opts) {
   var seneca = this
 

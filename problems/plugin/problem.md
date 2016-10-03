@@ -13,7 +13,7 @@ So an example of seneca plugin could be something like this:
 ```javascript
 var plugin = function(options) {
 
-   this.add('role:greetings, cmd:hello', function(msg, respond) {
+   this.add({role:'greetings', cmd:'hello'}, function(msg, respond) {
          var hello = "Hello " + msg.name;
          respond(null, {answer: hello });
      });  
@@ -26,7 +26,7 @@ a string from the plugin definition function, like this:
 ```javascript
 var plugin = function(options) {
 
-   this.add('role:greetings, cmd:hello', function(msg, respond) {
+   this.add({role:'greetings', cmd:'hello'}, function(msg, respond) {
          var hello = "Hello " + msg.name;
          respond(null, {answer: hello });
      });  
@@ -43,7 +43,7 @@ var seneca = require('seneca')()
 var plugin = function(options) { ... } // as above
 
 seneca.use( plugin, {} )
-seneca.act( 'role:greetings, cmd:hello, name:michele', console.log )
+seneca.act( {role:'greetings', cmd:'hello', name:'michele'}, console.log )
 
 ```
 

@@ -35,7 +35,8 @@ See
 http://senecajs.org/tutorials/understanding-data-entities.html for full documentation.  
 
 Here an example on how to use the store:
-```
+
+```javascript
 var seneca = require('seneca')()
 seneca.use('entity')
 
@@ -46,6 +47,7 @@ product.price = 1.99
 // sends role:entity,cmd:save,name:product messsage
 product.save$( console.log )
 ```
+
 The goal of the exercise is to extend the math plugin from the last
 exercise to "store" the operations done my the plugin using these objects:
 
@@ -61,7 +63,7 @@ npm install --save seneca-entity
 ```
 ...and then activating it, like in the example above:
 
-```
+```javascript
 seneca.use('entity')
 ```
 In this exercise, this is not necessary, since we are adding the "store"

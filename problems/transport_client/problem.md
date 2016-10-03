@@ -10,14 +10,15 @@ Both `seneca.client` and `seneca.listen` accept the following parameters:
 * `spec`: optional object; full specification object.
 
 For instance, we can have this microservice:
-```
+
+```javascript
 require('seneca')()
   .use( 'myplugin' )
   .listen( { type:'tcp'} )
 ```
 ...and a client:
 
-```
+```javascript
 require('seneca')()
   .client({ type:'tcp'})
   .act({role: 'greetings', cmd: 'hello', name: 'Marco'}, console.log)
