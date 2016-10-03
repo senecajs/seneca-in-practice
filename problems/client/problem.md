@@ -13,7 +13,7 @@ result)` signature. If there is a problem (say, the message matches no patterns)
 then the first argument is an Error object.
 If everything goes according to plan, the second argument is the result object.
 
-```
+```javascript
 seneca.act({role: 'greetings', cmd: 'hello', name: 'Marco'},
     function (err, result) {
         if (err) return console.error (err)

@@ -25,12 +25,12 @@ to save statistics about the names.
 var seneca = require('seneca')()
 var names = {}
 
-seneca.add( 'role:greetings, cmd:hello', function( msg, respond ) {
+seneca.add({role:'greetings', cmd:'hello'}, function( msg, respond ) {
     var hello = "Hello " + msg.name;
     respond( null, { answer: hello });
 });
 
-seneca.add( 'role:greetings, cmd:hello', function( msg, respond ) {
+seneca.add({role:'greetings', cmd:'hello'}, function( msg, respond ) {
 
    // saving names statistics in names array
    names[msg.name]=  names[msg.name] ? names[msg.name] + 1 : 1

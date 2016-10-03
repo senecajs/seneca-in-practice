@@ -3,7 +3,7 @@ Up to now, we had everything running in the same process. In Seneca we have
 many ways, all hidden from your business logic. It's possible to change that
 using the `listen` method:
 
-```
+```javascript
 require('seneca')().use('myplugin').listen()
 ```
 Running this code starts a Microservice process that listens on port 10101
@@ -13,7 +13,7 @@ In this case, HTTP is being used as the transport mechanism for messages.
 Note that if no host is specified, seneca will try to connect to host at 0.0.0.0,
 which do not work on Windows. To avoid that, just pass options to listen, e.g.:
 
-```
+```javascript
 seneca.listen({port: 8080, host:'127.0.0.1')
 ```
 
@@ -22,7 +22,7 @@ but it does have all the overhead of HTTP.
 Another transport that you can use is direct TCP connections. Seneca provides
 both HTTP and TCP options via the built-in transport. Let’s move to TCP:
 
-```
+```javascript
 seneca.listen({type:'tcp'})
 ```
 

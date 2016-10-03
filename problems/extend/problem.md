@@ -11,12 +11,12 @@ this property:
 ```javascript
 var seneca = require('seneca')()
 
-seneca.add( 'role:greetings, cmd:hello', function( msg, respond ) {
+seneca.add({role:'greetings', cmd:'hello'}, function( msg, respond ) {
     var hello = "Hello " + msg.name;
     respond( null, { answer: hello });
 });
 
-seneca.add( 'role:greetings, cmd:hello, lang:it', function( msg, respond ) {
+seneca.add({role:'greetings', cmd:'hello', lang:'it'}, function( msg, respond ) {
     var hello = "Ciao " + msg.name;
     respond( null, { answer: hello });
 });

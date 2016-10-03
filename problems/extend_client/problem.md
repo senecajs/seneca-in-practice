@@ -12,8 +12,8 @@ var seneca = require('seneca')()
 var plugin = function( options ) { ... } // as above
 
 seneca.use( plugin, {} )
-seneca.act( 'role:greetings,cmd:hello,name:michele', console.log )
-seneca.act( 'role:greetings,cmd:hello,lang:it,name:michele', console.log )
+seneca.act({role:'greetings',cmd:'hello',name:'michele'}, console.log )
+seneca.act({role:'greetings',cmd:'hello',lang:'it',name:'michele'}, console.log )
 
 ```
 

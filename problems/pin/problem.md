@@ -10,7 +10,7 @@ manually for each one. It takes the following two parameters:
 Here an example of the "greetings" plugin which transform every name passed
 in uppercase:
 
-```
+```javascript
 module.exports = function greetings(options) {
 
   this.add({role:'greetings', cmd:'hello'}, function(args, done) {
@@ -23,7 +23,7 @@ module.exports = function greetings(options) {
     respond(null, { answer: hey });
   })
 
-  this.wrap('role:greetings', function (msg, respond) {
+  this.wrap({role:'greetings'}, function (msg, respond) {
     msg.name  = msg.name.toUpperCase();
     this.prior(msg, respond)
   })

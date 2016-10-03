@@ -17,7 +17,7 @@ in the next exercise).
 Another common convention is to use the property “cmd” for the main public
 commands exposed by the plugin. So, you might have, for example:
 
-```
+```javascript
 var plugin = function (options) {
   this.add( {role:'greetings', cmd:'hey'}, function( args, done ) {
     var hey = "Hey " + msg.name;
