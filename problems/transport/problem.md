@@ -11,14 +11,14 @@ Running this code starts a Microservice process that listens on port 10101
 In this case, HTTP is being used as the transport mechanism for messages.
 
 Note that if no host is specified, seneca will try to connect to host at 0.0.0.0,
-which do not work on Windows. To avoid that, just pass options to listen, e.g.:
+which does not work on Windows. To avoid that, just pass options to listen, e.g.:
 
 ```
 seneca.listen({port: 8080, host:'127.0.0.1')
 ```
 
 The HTTP transport provides an easy way to integrate with Seneca Microservices,
-but it does have all the overhead of HTTP.
+but it has all the HTTP overhead.
 Another transport that you can use is direct TCP connections. Seneca provides
 both HTTP and TCP options via the built-in transport. Let’s move to TCP:
 
