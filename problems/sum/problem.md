@@ -28,7 +28,7 @@ In the above example the pattern has been expressed as `Object` but
 you can also specify patterns as `String` like this:
 
 ```javascript
-seneca.add( 'role:greetings,cmd:hello', ...);
+seneca.add( {role:'greetings',cmd:'hello'}, ...);
 ```
 
 The challenge for this step is to build a simple Seneca service
