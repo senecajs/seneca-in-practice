@@ -16,7 +16,7 @@
 ### How to run it
 
   1. Install [Node.js](http://nodejs.org/)
-  2. Run `sudo npm install seneca-in-practice -g`
+  2. Install `seneca-in-practice` globally, e.g.: `npm install seneca-in-practice -g`
   3. Run `seneca-in-practice`
 
 __`seneca-in-practice`__ will guide you through seneca.js framework to reach a greater knowledge of Microservice-based software architectures with NodeJS.

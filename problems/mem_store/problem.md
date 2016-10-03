@@ -32,7 +32,7 @@ The record object has methods `load$`, `save$`, `list$` and `remove$`
  (the trailing $ avoids clashes with data fields).
 The data fields are just the object properties.
 See
-http://senecajs.org/tutorials/understanding-data-entities.html for full documentation.  
+http://senecajs.org/docs/tutorials/understanding-data-entities.html for full documentation.  
 
 Here an example on how to use the store:
 
