@@ -32,12 +32,14 @@ The record object has methods `load$`, `save$`, `list$` and `remove$`
  (the trailing $ avoids clashes with data fields).
 The data fields are just the object properties.
 See
-http://senecajs.org/docs/tutorials/understanding-data-entities.html for full documentation.  
+[http://senecajs.org/docs/tutorials/understanding-data-entities.html]
+for full documentation.
 
 Here an example on how to use the store:
 
 ```javascript
 var seneca = require('seneca')()
+seneca.use('basic')
 seneca.use('entity')
 
 var product = seneca.make('product')
@@ -64,6 +66,7 @@ npm install --save seneca-entity
 ...and then activating it, like in the example above:
 
 ```javascript
+seneca.use('basic')
 seneca.use('entity')
 ```
 In this exercise, this is not necessary, since we are adding the "store"
