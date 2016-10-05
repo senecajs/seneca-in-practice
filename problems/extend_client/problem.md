@@ -25,8 +25,11 @@ Ciao Michele
 
 ```
 
-The goal of the exercise is to extend the client that we developed,
-so that it calls the two patterns that we created at previous step.
+The goal of the exercise is to extend the client that we developed, so that it
+calls the two patterns that we created at previous step in order, i.e.
+first calling first version of `sum` then calling the version of `sum` with `integer: true`
+ and printing out on console both results (in the same order).
+
 Keep in mind that numbers will be passed as parameters (use `process.argv`)
 and that you might want to transform them into float numbers.
 
