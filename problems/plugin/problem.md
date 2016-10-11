@@ -49,10 +49,10 @@ seneca.ready(function(err) {
 
 ```
 
-`seneca.use` is goin to load the plugin: `seneca.ready` will provide the callback
-for when the plugin has been loaded. Any error happened while loading will be passed 
+The `seneca.use` is going to load the plugin: `seneca.ready` will provide the callback
+for when the plugin has been loaded. Any error that will happen while loading will be passed 
 via the `err` param.
- 
+
 The goal of the exercise is to write a plugin called `operations` that sums two
 numbers, as we did for the first step. For the purpose of this exercise, ***do not
 require Seneca directly*** just create a module that exports a function that defines
