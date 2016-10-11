@@ -43,9 +43,15 @@ var seneca = require('seneca')()
 var plugin = function(options) { ... } // as above
 
 seneca.use( plugin, {} )
-seneca.act( {role:'greetings', cmd:'hello', name:'michele'}, console.log )
+seneca.ready(function(err) {
+  seneca.act( {role:'greetings', cmd:'hello', name:'michele'}, console.log )
+})
 
 ```
+
+The `seneca.use` is going to load the plugin: `seneca.ready` will provide the callback
+for when the plugin has been loaded. Any error that will happen while loading will be passed 
+via the `err` param.
 
 The goal of the exercise is to write a plugin called `operations` that sums two
 numbers, as we did for the first step. For the purpose of this exercise, ***do not
