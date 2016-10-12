@@ -7,7 +7,6 @@ const async = require('async')
 const _ = require('lodash')
 const {getRandomInt} = require('../utils')
 let exercise = require('workshopper-exercise')()
-var seneca = require('seneca')()
 
 // cleanup for both run and verify
 exercise.addCleanup((mode, passed, callback) => { /* Do nothing */ })
@@ -36,6 +35,7 @@ exercise.addProcessor(function (mode, callback) {
   let solutionResult, submissionResult
   const that = this
   let pass = true
+  var seneca = require('seneca')()
   async.series([
     cb => {
       return seneca.use(that.submissionModule).act({role: 'math', cmd: 'product', left: a, right: b}, cb)

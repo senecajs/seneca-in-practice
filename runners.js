@@ -32,3 +32,6 @@ workshopper({
   }],
   onComplete: hooray
 })
+
+// Temporary, see: https://github.com/senecajs/seneca/issues/566
+process.removeAllListeners('warning')
