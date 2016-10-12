@@ -37,6 +37,33 @@ will produce:
 
 ```
 
+One thing that we should keep in mind is that plugin load order is important.
+Load order significance means the plugin that loads last is the one that handles 
+the message. So if we had this code:
+
+```javascript
+var seneca = require('seneca')()
+
+seneca.add({role:'greetings', cmd:'hello'}, function( msg, respond ) {
+    var hello = "Hello from first";
+    respond( null, { answer: hello });
+});
+
+seneca.add({role:'greetings', cmd:'hello'}, function( msg, respond ) {
+    var hello = "Hello from second";
+    respond( null, { answer: hello });
+});
+
+```
+sending `{role:'greetings', cmd:'hello'}` we would actually receive :
+
+``javascript
+{answer: 'Hello from second'}
+
+```
+
+Keep in mind while using plugins.
+
 The goal of the exercise is to extend the sum plugin so that it supports the
 ability to force integer-only arithmetic.
 To do this, you add a new property, `integer:true`, to the message object and
