@@ -37,9 +37,8 @@ will produce:
 
 ```
 
-One thing that we should keep in mind is that plugin load order is important.
-Load order significance means the plugin that loads last is the one that handles 
-the message. So if we had this code:
+One thing that we should keep in mind when extending pattern is that order is important.
+So for instance if we had this code:
 
 ```javascript
 var seneca = require('seneca')()
@@ -62,7 +61,8 @@ sending `{role:'greetings', cmd:'hello'}` we would actually receive :
 
 ```
 
-Keep in mind while using plugins.
+That's because if you delcare multiple pattern for the same message, only 
+the last one will be the one invoked by Seneca. 
 
 The goal of the exercise is to extend the sum plugin so that it supports the
 ability to force integer-only arithmetic.
