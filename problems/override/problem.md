@@ -4,8 +4,9 @@ The action patterns that we define are unique. They can trigger only one
 function. The patterns resolve using the following rules:
 
 * More properties win.
-* If the patterns have the same number of properties, they are matched in alphabetical order.
-* If you declare two times the same pattern, the latest will be the one
+* If the patterns have the same number of properties, they are matched 
+  in alphabetical order.
+* If you declare two times the same pattern, the latest will be the one 
   used in a instance, as there can't be two equal patterns in it.
 
 These rules are designed to be simple so that you can run them in your head.
