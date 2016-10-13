@@ -51,7 +51,9 @@ seneca.ready(function(err) {
 
 The `seneca.use` is going to load the plugin: `seneca.ready` will provide the callback
 for when the plugin has been loaded. Any error that will happen while loading will be passed 
-via the `err` param.
+via the `err` param. One thing that we should be aware is that order matter when 
+loading plugins. So for instance if you load two plugins declaring the same message pattern
+only the last one will be the one handling the message. Keep it in mind!
 
 The goal of the exercise is to write a plugin called `operations` that sums two
 numbers, as we did for the first step. For the purpose of this exercise, ***do not

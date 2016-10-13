@@ -37,6 +37,33 @@ will produce:
 
 ```
 
+One thing that we should keep in mind when extending pattern is that order is important.
+So for instance if we had this code:
+
+```javascript
+var seneca = require('seneca')()
+
+seneca.add({role:'greetings', cmd:'hello'}, function( msg, respond ) {
+    var hello = "Hello from first";
+    respond( null, { answer: hello });
+});
+
+seneca.add({role:'greetings', cmd:'hello'}, function( msg, respond ) {
+    var hello = "Hello from second";
+    respond( null, { answer: hello });
+});
+
+```
+sending `{role:'greetings', cmd:'hello'}` we would actually receive :
+
+``javascript
+{answer: 'Hello from second'}
+
+```
+
+That's because if you delcare multiple pattern for the same message, only 
+the last one will be the one invoked by Seneca. 
+
 The goal of the exercise is to extend the sum plugin so that it supports the
 ability to force integer-only arithmetic.
 To do this, you add a new property, `integer:true`, to the message object and
