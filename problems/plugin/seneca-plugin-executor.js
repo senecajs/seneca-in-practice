@@ -5,6 +5,9 @@
  * The module to be require as the first param.
  */
 
+ // Temporary, see: https://github.com/senecajs/seneca/issues/566
+ process.removeAllListeners('warning')
+
 var mod = require(process.argv[2])
 
 var seneca = require('seneca')()

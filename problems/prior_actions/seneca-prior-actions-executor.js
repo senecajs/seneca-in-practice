@@ -1,3 +1,6 @@
+// Temporary, see: https://github.com/senecajs/seneca/issues/566
+process.removeAllListeners('warning')
+
 var seneca = require('seneca')()
 seneca.use(process.argv[2])
 

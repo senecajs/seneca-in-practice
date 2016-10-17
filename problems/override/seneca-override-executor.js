@@ -4,6 +4,10 @@
  * Executes the submitted and the solution, to compare the stdout.
  * The module to be require as the first param.
  */
+
+ // Temporary, see: https://github.com/senecajs/seneca/issues/566
+ process.removeAllListeners('warning')
+ 
 var seneca = require('seneca')()
 seneca.use(process.argv[2])
 
