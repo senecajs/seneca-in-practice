@@ -56,7 +56,7 @@ seneca.add({role:'greetings', cmd:'hello'}, function( msg, respond ) {
 ```
 sending `{role:'greetings', cmd:'hello'}` we would actually receive :
 
-``javascript
+```javascript
 {answer: 'Hello from second'}
 
 ```
