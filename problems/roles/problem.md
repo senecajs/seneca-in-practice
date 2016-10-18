@@ -19,7 +19,7 @@ commands exposed by the plugin. So, you might have, for example:
 
 ```javascript
 var plugin = function (options) {
-  this.add( {role:'greetings', cmd:'hey'}, function( args, done ) {
+  this.add( {role:'greetings', cmd:'hey'}, function( msg, done ) {
     var hey = "Hey " + msg.name;
     respond( null, { answer: hey });
   })
