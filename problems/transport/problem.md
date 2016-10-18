@@ -14,7 +14,7 @@ Note that if no host is specified, seneca will try to connect to host at 0.0.0.0
 which does not work on Windows. To avoid that, just pass options to listen, e.g.:
 
 ```javascript
-seneca.listen({port: 8080, host:'127.0.0.1')
+seneca.listen({port: 8080, host:'127.0.0.1'})
 ```
 
 The HTTP transport provides an easy way to integrate with Seneca Microservices,
