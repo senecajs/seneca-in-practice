@@ -57,7 +57,10 @@ exercise to "store" the operations done my the plugin using these objects:
 
 Then add to the plugin a `operation-history` command that returns the list of
 executed operations so far. For this, please look that `list$` first parameter is a
-"query" object, that for this exercise can be left empty (`{}`).
+"query" object, that for this exercise can be left empty (`{}`), e.g.
+```javascript
+  product.list$({}, function(err, products){ ... })
+```
 
 One last note: with Seneca 3, entity is enabled installing the package:
 ```
