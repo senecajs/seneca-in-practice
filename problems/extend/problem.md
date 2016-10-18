@@ -61,7 +61,7 @@ sending `{role:'greetings', cmd:'hello'}` we would actually receive :
 
 ```
 
-That's because if you delcare multiple pattern for the same message, only 
+That's because if you declare multiple pattern for the same message, only 
 the last one will be the one invoked by Seneca. 
 
 The goal of the exercise is to extend the sum plugin so that it supports the
