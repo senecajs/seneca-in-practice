@@ -18,7 +18,7 @@ seneca.act({role: 'math', cmd: 'sum', left: 'michele', right: 2.5}, function (er
   return console.log('false')
 })
 
-seneca.act({role: 'math', cmd: 'sum', left: process.argv[3], right: process.argv[4]}, function (err, result) {
+seneca.act({role: 'math', cmd: 'sum', left: parseInt(process.argv[3]), right: parseInt(process.argv[4])}, function (err, result) {
   if (err) return console.log(err)
   console.log(result)
 })
