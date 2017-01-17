@@ -4,7 +4,7 @@ module.exports = function math (options) {
     respond(null, {answer: sum})
   })
 
-  this.add({role:'math',cmd:'sum'}, function (msg, respond) {
+  this.add({role:'math', cmd:'sum'}, function (msg, respond) {
     this.prior(msg, function (err, out) {
       if (err) return respond(err)
 
