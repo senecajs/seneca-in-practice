@@ -51,7 +51,7 @@ product.save$( console.log )
 ```
 
 The goal of the exercise is to extend the math plugin from the last
-exercise to "store" the operations done my the plugin using these objects:
+exercise to "store" the operations done by the plugin using these objects:
 
     `{cmd: 'sum', left: 4. right: 5}`
 
