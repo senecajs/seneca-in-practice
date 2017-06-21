@@ -20,7 +20,7 @@ function rndport () {
 let a, b, cmd
 
 /**
- * We use a random port to avoid collision with possible hhanged porcess on
+ * We use a random port to avoid collision with possible hanged process on
  * ports.
  */
 exercise.addSetup(function (mode, callback) {
