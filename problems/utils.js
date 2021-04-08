@@ -20,7 +20,7 @@ exports.pickStaticProps = (result) => {
     'pattern', 'action', 'tag', 'seneca', 'version', 'timeout', 'custon', 'plugin', 'parents',
     'remote', 'sync', 'trace', 'sub', 'data', 'err', 'err_trace', 'error', 'empty'
   ]
-  result[1] = _.pick(result[1], staticProps)
-  return result
+
+  return [result[0], _.pick(result[1], staticProps)]
 }
 
