@@ -17,7 +17,7 @@ exports.getRandomFloat = (min = 0, max = 100) => {
 
 exports.pickStaticProps = (result) => {
   const staticProps = [
-    'pattern', 'action', 'tag', 'seneca', 'version', 'timeout', 'custon', 'plugin', 'parents',
+    'pattern', 'tag', 'seneca', 'version', 'timeout', 'custon', 'parents',
     'remote', 'sync', 'trace', 'sub', 'data', 'err', 'err_trace', 'error', 'empty'
   ]
 
