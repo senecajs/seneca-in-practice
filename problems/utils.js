@@ -21,6 +21,10 @@ exports.pickStaticProps = (result) => {
     'remote', 'sync', 'trace', 'sub', 'data', 'err', 'err_trace', 'error', 'empty'
   ]
 
-  return [result[0], _.pick(result[1], staticProps)]
+  if (result && result.length >= 2) {
+    return [result[0], _.pick(result[1], staticProps)]
+  } else {
+    return result
+  }
 }
 
