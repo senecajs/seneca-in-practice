@@ -5,7 +5,7 @@ const fs = require('fs')
 const path = require('path')
 const async = require('async')
 const _ = require('lodash')
-const {getRandomInt} = require('../utils')
+const {getRandomInt, pickStaticProps} = require('../utils')
 let exercise = require('workshopper-exercise')()
 
 // cleanup for both run and verify
@@ -46,11 +46,11 @@ exercise.addProcessor(function (mode, callback) {
       cb()
     }
   ], (err, results) => {
-    submissionResult = results[0]
+    submissionResult = pickStaticProps(results[0])
     if (mode === 'run') {
       console.log(`Execution with left: ${a}, right: ${b} returned: ${JSON.stringify(submissionResult)}`)
     } else {
-      solutionResult = results[1]
+      solutionResult = pickStaticProps(results[1])
       if (!_.isEqual(solutionResult, submissionResult)) {
         exercise.emit('fail', `Expected result: ${JSON.stringify(solutionResult)}` +
                               `, Actual result: ${JSON.stringify(submissionResult)}`)
